@@ -1,12 +1,12 @@
 import Phaser from 'phaser'
 
-import HelloWorldScene from './HelloWorldScene'
+import HelloWorldScene from './scenes/testScene'
 
 const config = {
 	type: Phaser.AUTO,
 	parent: 'app',
-	width: 800,
-	height: 600,
+	width: 1000,
+	height: 750,
 	physics: {
 		default: 'arcade',
 		arcade: {
