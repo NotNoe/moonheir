@@ -1,19 +1,33 @@
 import Phaser from 'phaser'
+import  LoadScene  from './scenes/LoadScene';
+import  MenuScene  from './scenes/MenuScene';
+import  World0_0  from './scenes/world/World0_0';
+import  World0_1  from './scenes/world/World0_1';
 
-import HelloWorldScene from './scenes/testScene'
+const scenes = [];
+scenes.push(LoadScene);
+scenes.push(MenuScene);
+scenes.push(World0_0);
+scenes.push(World0_1);
 
 const config = {
 	type: Phaser.AUTO,
+	pixelArt: true,
+	scale: {
+		mode: Phaser.Scale.FIT,
+		autoCenter: Phaser.Scale.CENTER_BOTH
+	},
 	parent: 'app',
 	width: 1000,
 	height: 750,
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: { y: 200 },
+			gravity: { y: 0 },
 		},
-	},
-	scene: [HelloWorldScene],
+		debug: true
+	},	
+	scene: scenes
 }
 
 export default new Phaser.Game(config)
