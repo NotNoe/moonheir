@@ -44,7 +44,7 @@ To create a production build:
 npm run build
 ```
 
-Production files will be placed in the `dist` folder. Then upload those files to a web server. 🎉
+Production files will be placed in the `dist` folder. Then upload those files to a web server. 🎉   
 
 ## Project Structure
 
