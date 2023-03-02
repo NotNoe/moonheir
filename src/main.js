@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
 import  LoadScene  from './scenes/LoadScene';
 import  MenuScene  from './scenes/MenuScene';
-import  World0_0  from './scenes/world/World0_0';
-import  World0_1  from './scenes/world/World0_1';
+import  World0_0  from './scenes/worldScenes/World0_0';
+import  World0_1  from './scenes/worldScenes/World0_1';
 
 const scenes = [];
 scenes.push(LoadScene);
@@ -24,8 +24,8 @@ const config = {
 		default: 'arcade',
 		arcade: {
 			gravity: { y: 0 },
+			debug: true
 		},
-		debug: true
 	},	
 	scene: scenes
 }

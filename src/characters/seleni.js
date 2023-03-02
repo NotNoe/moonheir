@@ -5,8 +5,8 @@ const SPEED = 200;
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{
     //Creo que cada escena tiene que tener un personaje distinto, porque el Sprite
     //se crea asociado a la escena
-    constructor(scene, info) {
-        super(scene, 0, 0, 'char');
+    constructor(scene, info, x, y) {
+        super(scene, x, y, 'char');
         this.info = info; //Esto son los datos del personaje
         scene.add.existing(this);
         scene.physics.add.existing(this);
@@ -54,6 +54,7 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
             this.setVelocityX(SPEED);
         else
             this.setVelocityX(0);
+        
     }
     goDown(b){
         if(b)

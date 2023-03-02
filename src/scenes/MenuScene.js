@@ -14,7 +14,7 @@ export default class MenuScene extends Phaser.Scene{
         //this.sound.add('music', {loop: true}).play(); //Esto comentado porque no me apetece escuchar la musiquita cada vez
         button.setInteractive();
         button.on("pointerup", ()=>{
-            this.scene.start('World0_0');
+            this.scene.start('World0_0', {x: 500,y: 350});
         })
     }
 }
