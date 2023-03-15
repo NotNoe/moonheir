@@ -18,6 +18,9 @@ export default class WorldScene extends Phaser.Scene {
 		this.player_posY = pos.y;
 	}
 
+	preload(){
+		this.load.spritesheet('seleni', 'assets/images/seleni.png', {frameWidth: 19, frameHeight: 26});
+	}
 
 	create() {
 		console.log("Estoy en un create");
