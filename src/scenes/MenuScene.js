@@ -1,3 +1,5 @@
+import { charInfo } from "../characters/charInfo";
+
 export default class MenuScene extends Phaser.Scene{
     constructor(){
         super({key: 'MenuScene'});
@@ -14,7 +16,10 @@ export default class MenuScene extends Phaser.Scene{
         //this.sound.add('music', {loop: true}).play(); //Esto comentado porque no me apetece escuchar la musiquita cada vez
         button.setInteractive();
         button.on("pointerup", ()=>{
-            this.scene.start('World0_0', {x: 500,y: 350});
+            let info = new charInfo();
+            info.pos.x = this.game.renderer.width/2;
+            info.pos.y = this.game.renderer.height/2;
+            this.scene.start('World0_1', info);
         })
     }
 }

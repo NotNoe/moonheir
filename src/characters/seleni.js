@@ -5,9 +5,9 @@ const SPEED = 200;
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{
     //Creo que cada escena tiene que tener un personaje distinto, porque el Sprite
     //se crea asociado a la escena
-    constructor(scene, info, x, y) {
+    interactuable; char_info;
+    constructor(scene, x, y) {
         super(scene, x, y, 'char');
-        this.info = info; //Esto son los datos del personaje
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.W = this.scene.input.keyboard.addKey('W', true, true);
@@ -35,6 +35,14 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
         this.LArrow.on('up', event => this.goLeft(false));
         this.DArrow.on('up', event => this.goDown(false));
         this.RArrow.on('up', event => this.goRight(false));
+
+
+        this.E = this.scene.input.keyboard.addKey('E', true, false);
+        this.space = this.scene.input.keyboard.addKey('SPACE', true, false);
+        this.enter = this.scene.input.keyboard.addKey('Enter', true, false);
+        this.E.on('down', event => this.interactuar());
+        this.space.on('down', event => this.interactuar());
+        this.enter.on('down', event => this.interactuar());
         
     }
     goUp(b){
@@ -63,7 +71,16 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
             this.setVelocityY(0);
     }
 
-    setPos(x, y){
-        this.setPosition(x, y);
-    } //Lo usaremos para mover el personaje a la posición adecuada.
+    deleteInteractuable(gm){
+        if(this.interactuable === gm) this.interactuable = null; //Si es el que estaba, lo borra
+    }
+
+    addInteractuable(gm){
+        this.interactuable = gm; //Pone el suyo
+    }
+
+    interactuar(){
+        if(this.interactuable == null) return;
+        this.interactuable.interactuar();
+    }
 }
