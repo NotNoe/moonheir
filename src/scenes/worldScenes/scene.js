@@ -18,16 +18,12 @@ export default class WorldScene extends Phaser.Scene {
 		this.player_posY = pos.y;
 	}
 
-	preload(){
-		this.load.spritesheet('seleni', 'assets/images/seleni.png', {frameWidth: 19, frameHeight: 26});
-	}
-
 	create() {
 		console.log("Estoy en un create");
 		this.map = this.make.tilemap({
 			key: this.tilemap
 		});
-		this.tileset = this.map.addTilesetImage('tileset_test', 'tileset');
+		this.tileset = this.map.addTilesetImage('tileset-moonheir', 'tileset');
 		this.map.createLayer('Background/Floor', this.tileset);
 		this.map.createLayer('Background/Flowers', this.tileset);
 		let layer = this.map.createLayer('Solid', this.tileset);
