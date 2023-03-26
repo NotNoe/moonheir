@@ -14,8 +14,9 @@ export default class LoadScene extends Phaser.Scene {
 
         const tilemaps = [];
         
-        this.load.image("menu_bg", images_folder + "MainMenu.png");
-        this.load.image("play_button", images_folder + "play_button.png");
+        // this.load.image("menu_bg", images_folder + "MainMenu.png");
+        this.load.image("menu_bg", images_folder + "menu_bg.png");
+        this.load.image("play_button", images_folder + "play-pixilart.png");
         this.load.image("tittle", images_folder + "Tittle.png");
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
         // this.load.image('char', images_folder + 'character.png');
