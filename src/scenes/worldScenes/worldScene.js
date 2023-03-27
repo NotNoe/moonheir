@@ -4,16 +4,14 @@ import Seleni from '../../characters/seleni';
 import Changer from './util/changer';
 import Door from './util/door';
 import Lock from './util/lock';
-import SceneData from './util/sceneData';
+import SceneData from './util/sceneData.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
 //tilemap en principio
 
 export default class WorldScene extends Phaser.Scene {
-	scene_data;
-	static scenes_data = {};
-	static char_info = {}; 
+	char_info; scene_data; scenes_data;
 	constructor(scene_name, tilemap, tileset) {
 		super(scene_name);
 		this.scene_name = scene_name;
@@ -21,7 +19,9 @@ export default class WorldScene extends Phaser.Scene {
 		this.tileset = tileset;
 	}
 
-	init() {
+	init(data) {
+		this.char_info = data.char_info;
+		this.scenes_data = data.scenes_data;
 		this.scene_data = this.scenes_data[this.scene_name];
 	}
 
@@ -44,6 +44,7 @@ export default class WorldScene extends Phaser.Scene {
 		//Creamos el personaje y hacemos que se choque contra los obstáculos
 		this.seleni = new Seleni(this, this.char_info.pos.x, this.char_info.pos.y);
 		this.seleni.char_info = this.char_info;
+		this.seleni.scene_data = this.scene_data;
 		this.seleni.setCollideWorldBounds(true);
 		this.physics.add.collider(layer, this.seleni);
 
@@ -64,7 +65,7 @@ export default class WorldScene extends Phaser.Scene {
 						for (const { name, value } of obj.properties) {
 							if (name == "type") type = value;
 						}
-						lock = new Lock(this, obj.x, obj.y, obj.width, obj.height, this.seleni, type);
+						lock = new Lock(this, obj.x, obj.y, obj.width, obj.height, this.seleni, type, direccion);
 						this.physics.add.overlap(lock, this.seleni);
 						break;
 					}
@@ -85,26 +86,26 @@ export default class WorldScene extends Phaser.Scene {
 									this.char_info.pos.x = this.game.renderer.width / 2;
 									this.char_info.pos.y = this.game.renderer.height - this.seleni.height / 2 - 1;
 									console.log(nextScene);
-									this.scene.start(nextScene);
+									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
 								case 'west':{
 									this.char_info.pos.x = this.game.renderer.width - this.seleni.width / 2 - 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log(nextScene);
-									this.scene.start(nextScene);
+									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'east':{
 									this.char_info.pos.x = this.seleni.width / 2 + 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log(nextScene);
-									this.scene.start(nextScene);
+									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'south':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
 									this.char_info.pos.y = this.seleni.height / 2 + 1;
 									console.log(nextScene);
-									this.scene.start(nextScene);
+									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
 							}

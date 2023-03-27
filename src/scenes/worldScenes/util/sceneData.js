@@ -3,10 +3,10 @@ export default class SceneData {
     data = {};
     constructor(map){
         let layer = map.getObjectLayer('Doors/North'); //Norte
-			if(layer != null) {
-                this.data['north'] = {};
-			    layer.objects.forEach(obj => {
-                this.data['north'][obj.name] = obj;
+		if(layer != null) {
+            this.data['north'] = {};
+			layer.objects.forEach(obj => {
+            	this.data['north'][obj.name] = obj;
 			})
 		}
 		layer = map.getObjectLayer('Doors/South');
@@ -31,4 +31,10 @@ export default class SceneData {
 			})
 		}
     }
+
+	delete_door(dir){
+		delete this.data[dir]['door'];
+		delete this.data[dir]['lock'];
+	}
+
 }

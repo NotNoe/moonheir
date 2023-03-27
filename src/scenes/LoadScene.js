@@ -7,6 +7,7 @@ const images_folder = assets_folder + 'images/';
 const audio_folder = assets_folder + 'audio/';
 
 export default class LoadScene extends Phaser.Scene {
+    scenes_data; scenenames;
     constructor(){
         super({key: 'LoadScene'});
     }
@@ -15,15 +16,15 @@ export default class LoadScene extends Phaser.Scene {
 
     preload(){ //La idea es que esta escena cargue todos los recursos que necesitemos en todo el juego
 
-        let scenenames = [];
+        this.scenenames = [];
         //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
         this.load.image('tileset', tiled_folder + 'tileset_test.png');
         let tilemaps = [];
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
-        scenenames.push('World0_1');
+        this.scenenames.push('World0_1');
         for(let i = 1; i <= 9; i++){
             tilemaps.push({key: 'tilemapWorld1_' + i, url: tiled_folder + 'World1_' + i + '.json'});
-            scenenames.push('World1_' + i);
+            this.scenenames.push('World1_' + i);
         }
         tilemaps.forEach(element => {
             this.load.tilemapTiledJSON(element.key, element.url);
@@ -31,16 +32,11 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sprites
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
-        this.loadMaps(scenenames);
 
         //Carga de imágenes
-        // this.load.image('menu_bg', images_folder + 'MainMenu.png');
         this.load.image("menu_bg", images_folder + "menu_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
-        this.load.image('tittle', images_folder + 'Tittle.png');
-        this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
-        // this.load.image('char', images_folder + 'character.png');
-        // this.load.image('vDoor', images_folder + 'vDoor.png');
+        this.load.image('vDoor', images_folder + 'vDoor.png');
         this.load.image('hDoor', images_folder + 'hDoor.png');
 
         //Carga de sonidos
@@ -63,18 +59,19 @@ export default class LoadScene extends Phaser.Scene {
     }
 
     create(){
-        this.scene.start('MenuScene');
+        this.scenes_data = this.loadMaps(this.scenenames);
+        this.scene.start('MenuScene', this.scenes_data);
     }
 
     loadMaps(scene_names){ //Esta funcion se va a encargar de cargar los mapas :D
+        let scenes_data = {};
         scene_names.forEach(sceneName => {
             let map = this.make.tilemap({
                 key: 'tilemap' + sceneName
             });
             let scene_data = new SceneData(map);
-            WorldScene.scenes_data[sceneName] = scene_data;
-            console.log("WorldScene.scenes_data: ");
-            console.log(WorldScene.scenes_data);
+            scenes_data[sceneName] = scene_data;
         });
+        return scenes_data;
     }
 }

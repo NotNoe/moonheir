@@ -2,12 +2,13 @@ import { charInfo } from "../characters/charInfo";
 import WorldScene from "./worldScenes/worldScene";
 
 export default class MenuScene extends Phaser.Scene{
+    scenes_data;
     constructor(){
         super({key: 'MenuScene'});
     }
 
-    init(){
-        
+    init(scenes_data){
+        this.scenes_data = scenes_data;
     }
 
     create(){
@@ -20,8 +21,7 @@ export default class MenuScene extends Phaser.Scene{
             let info = new charInfo();
             info.pos.x = this.game.renderer.width/2;
             info.pos.y = this.game.renderer.height/2;
-            WorldScene.char_info = info;
-            this.scene.start('World0_1');
+            this.scene.start('World0_1', {char_info:info, scenes_data:this.scenes_data});
         })
     }
 }
