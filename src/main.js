@@ -17,7 +17,6 @@ const config = {
 		mode: Phaser.Scale.FIT,
 		autoCenter: Phaser.Scale.CENTER_BOTH
 	},
-	parent: 'app',
 	width: 1000,
 	height: 750,
 	physics: {

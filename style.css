@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'custom-font';
+    src: url('/assets/fonts/VT323-Regular.ttf');
+}
+
+body {
+    background-color: rgb(69, 111, 225)
+}
+
+.ctrl-txt {
+    margin: 0 auto;
+    display: block;
+}
+
+.imagen {
+    width: 250px;
+    height: 125px;
+    margin: 0 auto;
+    display: block;
+}
+
+h1 {
+    font-family: custom-font;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.moon {
+    margin: 20px 0 0 0;
+    scale:2;
+}
