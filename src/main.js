@@ -1,10 +1,14 @@
 import Phaser from 'phaser'
+import { CombatScene } from './scenes/CombatScene';
 import  LoadScene  from './scenes/LoadScene';
 import  MenuScene  from './scenes/MenuScene';
+import { UIScene } from './scenes/UIScene';
 import  World0_0  from './scenes/worldScenes/World0_0';
 import  World0_1  from './scenes/worldScenes/World0_1';
 
 const scenes = [];
+scenes.push(CombatScene);
+scenes.push(UIScene);
 scenes.push(LoadScene);
 scenes.push(MenuScene);
 scenes.push(World0_0);
