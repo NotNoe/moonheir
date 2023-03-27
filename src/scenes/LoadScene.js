@@ -1,3 +1,6 @@
+import SceneData from './worldScenes/util/sceneData';
+import WorldScene from './worldScenes/worldScene';
+
 const assets_folder = 'assets/'
 const tiled_folder = assets_folder + 'tiled/';
 const images_folder = assets_folder + 'images/';
@@ -12,21 +15,23 @@ export default class LoadScene extends Phaser.Scene {
 
     preload(){ //La idea es que esta escena cargue todos los recursos que necesitemos en todo el juego
 
-
+        let scenenames = [];
         //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
         this.load.image('tileset', tiled_folder + 'tileset_test.png');
         let tilemaps = [];
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
+        scenenames.push('World0_1');
         for(let i = 1; i <= 9; i++){
             tilemaps.push({key: 'tilemapWorld1_' + i, url: tiled_folder + 'World1_' + i + '.json'});
+            scenenames.push('World1_' + i);
         }
-
         tilemaps.forEach(element => {
             this.load.tilemapTiledJSON(element.key, element.url);
         });
 
         //Carga de sprites
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
+        this.loadMaps(scenenames);
 
         //Carga de imágenes
         // this.load.image('menu_bg', images_folder + 'MainMenu.png');
@@ -59,5 +64,17 @@ export default class LoadScene extends Phaser.Scene {
 
     create(){
         this.scene.start('MenuScene');
+    }
+
+    loadMaps(scene_names){ //Esta funcion se va a encargar de cargar los mapas :D
+        scene_names.forEach(sceneName => {
+            let map = this.make.tilemap({
+                key: 'tilemap' + sceneName
+            });
+            let scene_data = new SceneData(map);
+            WorldScene.scenes_data[sceneName] = scene_data;
+            console.log("WorldScene.scenes_data: ");
+            console.log(WorldScene.scenes_data);
+        });
     }
 }
