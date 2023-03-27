@@ -25,15 +25,21 @@ export default class LoadScene extends Phaser.Scene {
             this.load.tilemapTiledJSON(element.key, element.url);
         });
 
+        //Carga de sprites
+        this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
+
         //Carga de imágenes
-        this.load.image('menu_bg', images_folder + 'MainMenu.png');
-        this.load.image('play_button', images_folder + 'play_button.png');
+        // this.load.image('menu_bg', images_folder + 'MainMenu.png');
+        this.load.image("menu_bg", images_folder + "menu_bg.png");
+        this.load.image('play_button', images_folder + 'play-pixilart.png');
         this.load.image('tittle', images_folder + 'Tittle.png');
-        this.load.image('char', images_folder + 'character.png');
-        this.load.image('vDoor', images_folder + 'vDoor.png');
+        this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
+        // this.load.image('char', images_folder + 'character.png');
+        // this.load.image('vDoor', images_folder + 'vDoor.png');
         this.load.image('hDoor', images_folder + 'hDoor.png');
 
         //Carga de sonidos
+        this.load.image('tileset', tiled_folder + 'tileset-moonheir.png');
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');
 
 
