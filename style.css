@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(69, 111, 225)
+    background-color: rgb(255, 255, 255)
 }
 
 .ctrl-txt {
@@ -13,13 +13,11 @@ body {
 }
 
 .imagen {
-    width: 250px;
-    height: 125px;
     margin: 0 auto;
     display: block;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6, p {
     font-family: custom-font;
 }
 
@@ -32,4 +30,9 @@ h1 {
 .moon {
     margin: 20px 0 0 0;
     scale:2;
+}
+
+.descripcion {
+    margin: 0 auto;
+    width: 50%;
 }
