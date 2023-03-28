@@ -11,7 +11,9 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
         super(scene, x, y, 'seleni');
         scene.add.existing(this);
         scene.physics.add.existing(this);
-		this.setScale(1);
+		this.displayWidth = 57;
+		this.displayHeight = 78;
+
 		//Controles
 		{
 			this.W = this.scene.input.keyboard.addKey('W', true, true);

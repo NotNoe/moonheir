@@ -84,27 +84,27 @@ export default class WorldScene extends Phaser.Scene {
 							switch(direccion){
 								case 'north':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.game.renderer.height - this.seleni.height / 2 - 1;
-									console.log(nextScene);
+									this.char_info.pos.y = this.game.renderer.height - this.seleni.displayHeight / 2 - 1;
+									console.log("Iniciando escena: " + nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
 								case 'west':{
-									this.char_info.pos.x = this.game.renderer.width - this.seleni.width / 2 - 1;
+									this.char_info.pos.x = this.game.renderer.width - this.seleni.displayWidth / 2 - 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
-									console.log(nextScene);
+									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'east':{
-									this.char_info.pos.x = this.seleni.width / 2 + 1;
+									this.char_info.pos.x = this.seleni.displayWidth / 2 + 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
-									console.log(nextScene);
+									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'south':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.seleni.height / 2 + 1;
-									console.log(nextScene);
+									this.char_info.pos.y = this.seleni.displayHeight / 2 + 1;
+									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
