@@ -31,11 +31,10 @@ export default class WorldScene extends Phaser.Scene {
 		let map = this.make.tilemap({
 			key: this.tilemap
 		});
-		this.tileset = map.addTilesetImage('tileset', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
+		this.tileset = map.addTilesetImage('tileset-pixilart', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
 
 		//Creamos el fondo, que no necesita colisiones ni nada
 		map.createLayer('Back/Background', this.tileset);
-		map.createLayer('Back/Details', this.tileset);
 		map.createLayer('Back/Path', this.tileset);
 		//Creamos la capa de obstáculos y le ponemos colisiones
 		let layer = map.createLayer('Obstacles', this.tileset);
@@ -102,26 +101,26 @@ export default class WorldScene extends Phaser.Scene {
 							switch(direccion){
 								case 'north':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.game.renderer.height - this.seleni.displayHeight / 2 - 1;
+									this.char_info.pos.y = this.game.renderer.height - this.seleni.displayHeight / 2 - 1 - 10;
 									console.log("Iniciando escena: " + nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
 								case 'west':{
-									this.char_info.pos.x = this.game.renderer.width - this.seleni.displayWidth / 2 - 1;
+									this.char_info.pos.x = this.game.renderer.width - this.seleni.displayWidth / 2 - 1 - 10;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'east':{
-									this.char_info.pos.x = this.seleni.displayWidth / 2 + 1;
+									this.char_info.pos.x = this.seleni.displayWidth / 2 + 1 + 10;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'south':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.seleni.displayHeight / 2 + 1;
+									this.char_info.pos.y = this.seleni.displayHeight / 2 + 1 + 10;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;

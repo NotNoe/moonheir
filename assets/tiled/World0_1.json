@@ -64,20 +64,21 @@
                 {
                  "draworder":"topdown",
                  "id":5,
-                 "name":"north",
+                 "name":"North",
                  "objects":[
                         {
+                         "class":"",
                          "height":52,
                          "id":4,
                          "name":"door",
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":99.9091,
                          "x":449.909,
                          "y":1.09091
                         }, 
                         {
+                         "class":"",
                          "height":54.9091,
                          "id":5,
                          "name":"lock",
@@ -88,13 +89,13 @@
                                  "value":"fire"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":103.818,
                          "x":448.364,
                          "y":0.181818
                         }, 
                         {
+                         "class":"",
                          "height":1,
                          "id":18,
                          "name":"changer",
@@ -105,7 +106,6 @@
                                  "value":"World1_1"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":98.9091,
                          "x":452.05,
@@ -120,20 +120,21 @@
                 {
                  "draworder":"topdown",
                  "id":7,
-                 "name":"south",
+                 "name":"South",
                  "objects":[
                         {
+                         "class":"",
                          "height":52,
                          "id":8,
                          "name":"door",
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":99.1818,
                          "x":450.182,
                          "y":698
                         }, 
                         {
+                         "class":"",
                          "height":53.2727,
                          "id":9,
                          "name":"lock",
@@ -144,13 +145,13 @@
                                  "value":"water"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":102.545,
                          "x":448.455,
                          "y":696.727
                         }, 
                         {
+                         "class":"",
                          "height":1,
                          "id":20,
                          "name":"changer",
@@ -161,7 +162,6 @@
                                  "value":"World3_1"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":98.9091,
                          "x":451,
@@ -176,20 +176,21 @@
                 {
                  "draworder":"topdown",
                  "id":9,
-                 "name":"east",
+                 "name":"East",
                  "objects":[
                         {
+                         "class":"",
                          "height":98,
                          "id":10,
                          "name":"door",
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":48,
                          "x":951,
                          "y":351
                         }, 
                         {
+                         "class":"",
                          "height":101.909,
                          "id":12,
                          "name":"lock",
@@ -200,13 +201,13 @@
                                  "value":"plant"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":50.3636,
                          "x":949,
                          "y":349.182
                         }, 
                         {
+                         "class":"",
                          "height":101,
                          "id":21,
                          "name":"changer",
@@ -217,7 +218,6 @@
                                  "value":"World2_1"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":1,
                          "x":997,
@@ -242,7 +242,7 @@
  "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.0",
+ "tiledversion":"1.9.2",
  "tileheight":50,
  "tilesets":[
         {
@@ -260,6 +260,6 @@
         }],
  "tilewidth":50,
  "type":"map",
- "version":"1.10",
+ "version":"1.9",
  "width":20
 }
