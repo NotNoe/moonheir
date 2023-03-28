@@ -27,7 +27,8 @@ scenes.push(World1_8);
 scenes.push(World1_9);
 
 const config = {
-	type: Phaser.AUTO,
+	type: Phaser.CANVAS,
+	canvas: document.getElementById('juego'),
 	pixelArt: true,
 	scale: {
 		mode: Phaser.Scale.FIT,
