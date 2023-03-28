@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 
 export default class Door extends Phaser.Physics.Arcade.Sprite {
@@ -9,5 +10,12 @@ export default class Door extends Phaser.Physics.Arcade.Sprite {
         // @ts-ignore
         this.body.setImmovable(true);
 
+    }
+
+    interactuar(zone){
+        this.scene.scene_data.delete_door(zone.dir);
+        zone.delete_zone();
+        this.destroy();
+        console.log("Puerta abierta correctamente");
     }
 }

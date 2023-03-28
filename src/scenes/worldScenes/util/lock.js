@@ -1,36 +1,19 @@
-export default class Lock extends Phaser.GameObjects.Zone {
-    constructor(scene, x, y, height, width, seleni, type, dir){
-        super(scene, x, y, height, width);
-        scene.add.existing(this);
-        this.setOrigin(0, 0);
-        scene.physics.world.enable(this);
-        this.seleni = seleni;
-        this.type = type;
+import Interactive from "./interactive";
+
+export default class Lock extends Interactive {
+    constructor(scene, x, y, height, width, seleni, unlock, door, dir){
+        super(scene, x, y, height, width, seleni, door, 'lock');
         this.dir = dir;
+        this.unlock = unlock; //Esto es lo que necesita para abrirse (Luego veremos como hacerlo más fino)
     }
-    
-    preUpdate(){ //Es un poco palo, pero en el update hace eso :D
-        // @ts-ignore
-        if(this.scene.physics.overlap(this, this.seleni)){
-            this.seleni.addInteractuable(this);
-        }else{
-            this.seleni.deleteInteractuable(this);
-        }
-    }
-    ponRef(door){
-        this.door = door;
-    }
+
+
     interactuar(){
         //Aqui va el codigo de interactuar, que tendrá que checkear si puede abrir y abrirla en caso
-        if(this.seleni.char_info.currentWeapon == this.type){
-            this.seleni.deleteInteractuable(this);
-            this.door.destroy();
-            this.destroy();
-            console.log("Puerta abierta correctamente");
-            return true;
+        if(this.seleni.char_info.currentWeapon == this.unlock){
+            super.interactuar(); //Solo interactua con su objeto si puede.
         }else{
-            console.log("No tienes " + this.type);
-            return false;
+            console.log("No tienes " + this.unlock);
         }
     }
 }

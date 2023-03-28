@@ -245,9 +245,42 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":18,
+         "name":"Chest",
+         "objects":[
+                {
+                 "class":"",
+                 "height":50,
+                 "id":56,
+                 "name":"chest",
+                 "rotation":0,
+                 "visible":true,
+                 "width":50,
+                 "x":700,
+                 "y":500
+                }, 
+                {
+                 "class":"",
+                 "height":52.5909090909091,
+                 "id":57,
+                 "name":"overlap",
+                 "rotation":0,
+                 "visible":true,
+                 "width":52.875,
+                 "x":698.5,
+                 "y":499
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":18,
- "nextobjectid":56,
+ "nextlayerid":19,
+ "nextobjectid":58,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

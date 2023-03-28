@@ -4,7 +4,8 @@ import Seleni from '../../characters/seleni';
 import Changer from './util/changer';
 import Door from './util/door';
 import Lock from './util/lock';
-import SceneData from './util/sceneData.js';
+import Chest from './util/chest';
+import Interactive from './util/interactive';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
@@ -50,23 +51,40 @@ export default class WorldScene extends Phaser.Scene {
 
 		//Ponemos las puertas (Una panzá de código repetitivo :D)
 		this.addDoors();
+		this.addChest();
+	}
 
+	addChest(){
+		if(this.scene_data.cofre != undefined) {
+			console.log("Hay un cofre");
+			//Ponemos el objeto
+			let chest_obj = this.scene_data.cofre.chest;
+			let overlap_obj = this.scene_data.cofre.overlap;
+			let open = this.scene_data.cofre.open;
+			//Pintamos el cofre
+			let chest = new Chest(this, chest_obj.x, chest_obj.y, open);
+			this.physics.add.collider(chest, this.seleni);
+			let overlap;
+			if(!open){ //Solo ponemos la interacción si estaba cerrado
+				overlap = new Interactive(this, overlap_obj.x, overlap_obj.y, overlap_obj.width, overlap_obj.height, this.seleni, chest, 'chest');
+				this.physics.add.overlap(overlap, this.seleni);
+			}
+		}
 	}
 
 	addDoors() {
 		for (const direccion in this.scene_data.data) {
 			let v1 = this.scene_data.data[direccion];
 			let lock, door;
+			let type, obj_aux;
 			for (const tipo in v1) {
 				let obj = v1[tipo];
 				switch (tipo) {
-					case 'lock': {
-						let type;
+					case 'lock': { //Esto siempre tiene que hacerse despues de door
 						for (const { name, value } of obj.properties) {
 							if (name == "type") type = value;
 						}
-						lock = new Lock(this, obj.x, obj.y, obj.width, obj.height, this.seleni, type, direccion);
-						this.physics.add.overlap(lock, this.seleni);
+						obj_aux = obj;
 						break;
 					}
 					case 'door': {
@@ -113,7 +131,10 @@ export default class WorldScene extends Phaser.Scene {
 						break;
 					}
 				}
-				if (lock != undefined && door != undefined) lock.ponRef(door);
+			}
+			if(door != undefined && obj_aux != undefined){ //Esto es para tener ya la puerta
+				lock = new Lock(this, obj_aux.x, obj_aux.y, obj_aux.width, obj_aux.height, this.seleni, type, door, direccion);
+				this.physics.add.overlap(lock, this.seleni);
 			}
 		}
 	}	

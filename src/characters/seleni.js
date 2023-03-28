@@ -126,14 +126,13 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
         if(this.interactuable === gm) this.interactuable = null; //Si es el que estaba, lo borra
     }
 
-    addInteractuable(gm){
+    addInteractuable(gm){ //IMPORTANTE QUE NO PUEDA ESTAR EN MÁS DE UN INTERACTUABLE A LA VEZ NUNCA
         this.interactuable = gm; //Pone el suyo
     }
 
     interactuar(){
         if(this.interactuable == null) return;
-		let d = this.interactuable.dir;
-        if(this.interactuable.interactuar()) this.scene_data.delete_door(d);
+		this.interactuable.interactuar();
     }
 
 	preUpdate(t, dt) {

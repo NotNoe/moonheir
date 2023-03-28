@@ -38,6 +38,7 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('play_button', images_folder + 'play-pixilart.png');
         this.load.image('vDoor', images_folder + 'vDoor.png');
         this.load.image('hDoor', images_folder + 'hDoor.png');
+        this.load.image('chest', images_folder + 'chest.png');
 
         //Carga de sonidos
         this.load.image('tileset', tiled_folder + 'tileset-moonheir.png');
