@@ -34,6 +34,8 @@
                  "y":0
                 }],
          "name":"Back",
+         "offsetx":0.545455,
+         "offsety":-0.363636,
          "opacity":1,
          "type":"group",
          "visible":true,
@@ -47,6 +49,8 @@
          "height":15,
          "id":4,
          "name":"Obstacles",
+         "offsetx":0.545455,
+         "offsety":-0.363636,
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -69,12 +73,12 @@
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":89,
-                         "x":453,
-                         "y":2
+                         "width":99.9091,
+                         "x":449.909,
+                         "y":1.09091
                         }, 
                         {
-                         "height":60,
+                         "height":54.9091,
                          "id":5,
                          "name":"lock",
                          "properties":[
@@ -86,9 +90,26 @@
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":102,
-                         "x":448,
-                         "y":0
+                         "width":103.818,
+                         "x":448.364,
+                         "y":0.181818
+                        }, 
+                        {
+                         "height":1,
+                         "id":18,
+                         "name":"changer",
+                         "properties":[
+                                {
+                                 "name":"nextScene",
+                                 "type":"string",
+                                 "value":"World1_1"
+                                }],
+                         "rotation":0,
+                         "type":"",
+                         "visible":true,
+                         "width":98.9091,
+                         "x":452.05,
+                         "y":2.59091
                         }],
                  "opacity":1,
                  "type":"objectgroup",
@@ -108,12 +129,12 @@
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":89,
-                         "x":454,
+                         "width":99.1818,
+                         "x":450.182,
                          "y":698
                         }, 
                         {
-                         "height":60,
+                         "height":53.2727,
                          "id":9,
                          "name":"lock",
                          "properties":[
@@ -125,9 +146,26 @@
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":102,
-                         "x":449,
-                         "y":696
+                         "width":102.545,
+                         "x":448.455,
+                         "y":696.727
+                        }, 
+                        {
+                         "height":1,
+                         "id":20,
+                         "name":"changer",
+                         "properties":[
+                                {
+                                 "name":"nextScene",
+                                 "type":"string",
+                                 "value":"World3_1"
+                                }],
+                         "rotation":0,
+                         "type":"",
+                         "visible":true,
+                         "width":98.9091,
+                         "x":451,
+                         "y":747.864
                         }],
                  "opacity":1,
                  "type":"objectgroup",
@@ -148,11 +186,11 @@
                          "type":"",
                          "visible":true,
                          "width":48,
-                         "x":952,
-                         "y":350
+                         "x":951,
+                         "y":351
                         }, 
                         {
-                         "height":111,
+                         "height":101.909,
                          "id":12,
                          "name":"lock",
                          "properties":[
@@ -164,9 +202,26 @@
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":58,
-                         "x":945,
-                         "y":345
+                         "width":50.3636,
+                         "x":949,
+                         "y":349.182
+                        }, 
+                        {
+                         "height":101,
+                         "id":21,
+                         "name":"changer",
+                         "properties":[
+                                {
+                                 "name":"nextScene",
+                                 "type":"string",
+                                 "value":"World2_1"
+                                }],
+                         "rotation":0,
+                         "type":"",
+                         "visible":true,
+                         "width":1,
+                         "x":997,
+                         "y":349.864
                         }],
                  "opacity":1,
                  "type":"objectgroup",
@@ -175,6 +230,8 @@
                  "y":0
                 }],
          "name":"Doors",
+         "offsetx":0.545455,
+         "offsety":-0.363636,
          "opacity":1,
          "type":"group",
          "visible":true,
@@ -182,7 +239,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":18,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.0",
