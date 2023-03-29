@@ -31,7 +31,7 @@ const config = {
 	canvas: document.getElementById('juego'),
 	pixelArt: true,
 	scale: {
-		// mode: Phaser.Scale.FIT,  
+		mode: Phaser.Scale.FIT,  
 		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
 	width: 1000,
