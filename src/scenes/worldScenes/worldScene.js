@@ -1,11 +1,11 @@
 // @ts-nocheck
-import Phaser from 'phaser'
-import Seleni from '../../characters/seleni';
-import Changer from './util/changer';
-import Door from './util/door';
-import Lock from './util/lock';
-import Chest from './util/chest';
-import Interactive from './util/interactive';
+// import Phaser from 'phaser'
+import Seleni from '../../characters/seleni.js';
+import Changer from './util/changer.js';
+import Door from './util/door.js';
+import Lock from './util/lock.js';
+import Chest from './util/chest.js';
+import Interactive from './util/interactive.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el

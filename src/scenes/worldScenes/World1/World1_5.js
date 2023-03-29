@@ -1,4 +1,4 @@
-import WorldScene from "../worldScene";
+import WorldScene from "../worldScene.js";
 
 export default class World1_5 extends WorldScene{
     constructor(){

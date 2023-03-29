@@ -1,4 +1,4 @@
-import Interactive from "./interactive";
+import Interactive from "./interactive.js";
 
 export default class Lock extends Interactive {
     constructor(scene, x, y, height, width, seleni, unlock, door, dir){
