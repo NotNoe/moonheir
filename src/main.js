@@ -1,4 +1,4 @@
-import Phaser from 'phaser'
+// import Phaser from 'phaser'
 import LoadScene  from './scenes/LoadScene';
 import MenuScene  from './scenes/MenuScene';
 import World0_1  from './scenes/worldScenes/World0/World0_1';
@@ -27,7 +27,7 @@ scenes.push(World1_8);
 scenes.push(World1_9);
 
 const config = {
-	type: Phaser.CANVAS,
+	type: Phaser.WEBGL,
 	canvas: document.getElementById('juego'),
 	pixelArt: true,
 	scale: {
@@ -39,7 +39,7 @@ const config = {
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: { y: 0 },
+			gravity: { y:0 },
 			debug: true
 		},
 	},	
