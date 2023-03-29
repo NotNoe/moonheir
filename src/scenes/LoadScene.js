@@ -1,5 +1,5 @@
-import SceneData from './worldScenes/util/sceneData';
-import WorldScene from './worldScenes/worldScene';
+import SceneData from './worldScenes/util/sceneData.js';
+import WorldScene from './worldScenes/worldScene.js';
 
 const assets_folder = 'assets/'
 const tiled_folder = assets_folder + 'tiled/';

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import Phaser from 'phaser'
+// import Phaser from 'phaser'
 
 const SPEED = 200;
 
