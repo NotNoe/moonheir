@@ -1,16 +1,16 @@
 // import Phaser from 'phaser'
-import LoadScene  from './scenes/LoadScene';
-import MenuScene  from './scenes/MenuScene';
-import World0_1  from './scenes/worldScenes/World0/World0_1';
-import World1_1  from './scenes/worldScenes/World1/World1_1';
-import World1_2 from './scenes/worldScenes/World1/World1_2';
-import World1_3 from './scenes/worldScenes/World1/World1_3';
-import World1_4 from './scenes/worldScenes/World1/World1_4';
-import World1_5 from './scenes/worldScenes/World1/World1_5';
-import World1_6 from './scenes/worldScenes/World1/World1_6';
-import World1_7 from './scenes/worldScenes/World1/World1_7';
-import World1_8 from './scenes/worldScenes/World1/World1_8';
-import World1_9 from './scenes/worldScenes/World1/World1_9';
+import LoadScene  from './scenes/LoadScene.js';
+import MenuScene  from './scenes/MenuScene.js';
+import World0_1  from './scenes/worldScenes/World0/World0_1.js';
+import World1_1  from './scenes/worldScenes/World1/World1_1.js';
+import World1_2 from './scenes/worldScenes/World1/World1_2.js';
+import World1_3 from './scenes/worldScenes/World1/World1_3.js';
+import World1_4 from './scenes/worldScenes/World1/World1_4.js';
+import World1_5 from './scenes/worldScenes/World1/World1_5.js';
+import World1_6 from './scenes/worldScenes/World1/World1_6.js';
+import World1_7 from './scenes/worldScenes/World1/World1_7.js';
+import World1_8 from './scenes/worldScenes/World1/World1_8.js';
+import World1_9 from './scenes/worldScenes/World1/World1_9.js';
 
 const scenes = [];
 scenes.push(LoadScene);
