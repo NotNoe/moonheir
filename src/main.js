@@ -31,15 +31,15 @@ const config = {
 	canvas: document.getElementById('juego'),
 	pixelArt: true,
 	scale: {
-		mode: Phaser.Scale.FIT,
-		autoCenter: Phaser.Scale.CENTER_BOTH
+		// mode: Phaser.Scale.FIT,  
+		autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
 	},
 	width: 1000,
 	height: 750,
 	physics: {
 		default: 'arcade',
 		arcade: {
-			gravity: { y: 0 },
+			gravity: { y: 400 },
 			debug: true
 		},
 	},	
