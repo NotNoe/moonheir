@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'custom-font';
-    src: url('/assets/fonts/VT323-Regular.ttf');
+    src: url('./assets/fonts/VT323-Regular.ttf');
 }
 
 body {
@@ -35,4 +35,10 @@ h1, h2, h3, h4, h5, h6, p {
 .descripcion {
     margin: 0 auto;
     width: 50%;
+}
+
+canvas{
+    padding: 0;
+    margin: auto;
+    display: block;
 }
