@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-export class CombatScene extends Phaser.Scene {
+export default class CombatScene extends Phaser.Scene {
     constructor(){
         super({key : 'CombatScene'});
     }
@@ -14,6 +14,7 @@ export class CombatScene extends Phaser.Scene {
 
     create(){
         this.scene.launch('UIScene');
+
         this.cameras.main.setBackgroundColor('rgb(245, 245, 220)');
     }
 
