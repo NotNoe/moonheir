@@ -1,112 +1,22 @@
-# Phaser 3 + Vite.js Template
-> Make Phaser 3 games with modern frontend tooling.
+# MOONHEIR
 
-![License](https://img.shields.io/badge/license-MIT-green)
+## Descripción
 
-## Prerequisites
+Esto es un trabajo universitario. Todos los assets están hechos por nosotros, al igual que la música. La licencia de los assets se puede encontrar en /docs/assets.pdf.
 
-You'll need [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed.
+Moonheir es un RPG por turnos / aventura en la que el jugador controla a Seleni, la protagonista para superar las adversidades que van apareciendo a la vez que se desarrolla la historia del juego.
 
-It is highly recommended to use [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) to install Node.js and npm.
+## Imágenes y bocetos
 
-For Windows users there is [Node Version Manager for Windows](https://github.com/coreybutler/nvm-windows).
+![inventario](https://user-images.githubusercontent.com/56733112/228374463-696eeaa6-bb85-4617-8773-c3b5c5790df9.png)
 
-Install Node.js and `npm` with `nvm`:
+![guicombate](https://user-images.githubusercontent.com/56733112/228375029-9c4d36df-a4f6-452e-a69d-df23465e11ac.jpg)
 
-```bash
-nvm install node
 
-nvm use node
-```
+## Arquitectura 
 
-Replace 'node' with 'latest' for `nvm-windows`.
+![uml](https://user-images.githubusercontent.com/56733112/228375160-e9e5ba1d-dc9e-4265-8013-30f664f3aea9.png)
 
-## Getting Started
+## Página web
 
-You can clone this repository or use [degit](https://github.com/Rich-Harris/degit) to scaffold the project like this:
-
-```bash
-npx degit https://github.com/ourcade/phaser3-vite-template my-folder-name
-cd my-folder-name
-
-npm install
-```
-
-Start development server:
-
-```
-npm run start
-```
-
-To create a production build:
-
-```
-npm run build
-```
-
-Production files will be placed in the `dist` folder. Then upload those files to a web server. 🎉   
-
-## Project Structure
-
-```
-    .
-    ├── dist
-    ├── node_modules
-    ├── public
-    ├── src
-    │   ├── HelloWorldScene.js
-    │   ├── main.js
-	├── index.html
-    ├── package.json
-```
-
-JavaScript files are intended for the `src` folder. `main.js` is the entry point referenced by `index.html`.
-
-Other than that there is no opinion on how you should structure your project.
-
-There is an example `HelloWorldScene.js` file that can be placed inside a `scenes` folder to organize by type or elsewhere to organize by function. For example, you can keep all files specific to the HelloWorld scene in a `hello-world` folder.
-
-It is all up to you!
-
-## Static Assets
-
-Any static assets like images or audio files should be placed in the `public` folder. It'll then be served from the root. For example: http://localhost:8000/images/my-image.png
-
-Example `public` structure:
-
-```
-    public
-    ├── images
-    │   ├── my-image.png
-    ├── music
-    │   ├── ...
-    ├── sfx
-    │   ├── ...
-```
-
-They can then be loaded by Phaser with `this.image.load('my-image', 'images/my-image.png')`.
-
-# ESLint
-
-This template uses a basic `eslint` set up for code linting to help you find and fix common problems in your JavaScript code.
-
-It does not aim to be opinionated.
-
-[See here for rules to turn on or off](https://eslint.org/docs/rules/).
-
-## Dev Server Port
-
-You can change the dev server's port number by modifying the `vite.config.js` file. Look for the `server` section:
-
-```js
-{
-	// ...
-	server: { host: '0.0.0.0', port: 8000 },
-}
-```
-
-Change 8000 to whatever you want.
-
-## License
-
-[MIT License](https://github.com/ourcade/phaser3-vite-template/blob/master/LICENSE)
+[JUGAR YA](https://notnoe.github.io/moonheir/)
