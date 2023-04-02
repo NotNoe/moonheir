@@ -12,8 +12,8 @@ import World1_6 from './scenes/worldScenes/World1/World1_6.js';
 import World1_7 from './scenes/worldScenes/World1/World1_7.js';
 import World1_8 from './scenes/worldScenes/World1/World1_8.js';
 import World1_9 from './scenes/worldScenes/World1/World1_9.js';
-import CombatScene from './scenes/CombatScene';
-import UIScene from './scenes/UIScene';
+import CombatScene from './scenes/combat/CombatScene.js';
+import UIScene from './scenes/combat/UIScene.js';
 
 const scenes = [];
 scenes.push(CombatScene);

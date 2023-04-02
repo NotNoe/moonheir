@@ -28,7 +28,6 @@ export default class DialogBox {
         return this.scene.sys.game.config.width;
     }
 
-    
     getGameHeight() {
         return this.scene.sys.game.config.height;
     }

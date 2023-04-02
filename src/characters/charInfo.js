@@ -1,6 +1,6 @@
 export class charInfo{
 
-    constructor(){
+    constructor() {
         
     }
 
@@ -8,4 +8,7 @@ export class charInfo{
     currentWeapon = "fire";
     unlockedWeapons = ["fire"];
     orient = 'down';
+    health = 54;
+    attack = 57;
+    defense = 56;
 }
