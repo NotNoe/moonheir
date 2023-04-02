@@ -82,8 +82,7 @@ export default class DialogBox {
 
         this.textPosition(tempText);
         this.text.setColor(this.textColor);
-        this.text.setFontFamily('Lucida Console');
-        this.text.setFontFamily('Silkscreen');
+        this.text.setFontFamily('CustomFont');
         if (animate) {
             this.timedEvent = this.scene.time.addEvent({
             delay: 150 - (this.dialogSpeed * 30),
@@ -117,16 +116,15 @@ export default class DialogBox {
         if (this.text) this.text.destroy();
         var x = this.x + 10 || this.padding + 10;
         var y = this.y + 10 || this.getGameHeight() - this.windowHeight - this.padding + 10;
-        this.text = this.scene.make.text({
+        this.text = this.scene.add.text(
             x,
             y,
             text,
-            color : this.textColor,
-            style: {
-                fontFamily: '"Goudy Bookletter 1911", Times, serif',
-                fontSize: '32px', 
+            {
+                color: this.textColor,
+                fontSize: '32px',
                 wordWrap: { width: this.getGameWidth() - (this.padding * 2) - 25 }
             }
-        });
+        );
     }
 }

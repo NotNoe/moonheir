@@ -83,15 +83,15 @@ export default class UIScene extends Phaser.Scene {
         // PULSAR OPCIÓN
         this.inputManager.SPACE.on('down', () =>{
             if(this.selected == 0){
-                this.dialog.setText('Seleni ataca al enemigo');
+                this.dialog.setText('Seleni ataca al enemigo', true);
                 console.log('atq');
             }
             else if(this.selected == 1){
-                this.dialog.setText('Seleni se defiende');
+                this.dialog.setText('Seleni se defiende', true);
                 console.log('def');
             }
             else if(this.selected == 2){
-                this.dialog.setText('Seleni ha usado una poción');
+                this.dialog.setText('Seleni ha usado una poción', true);
                 console.log('obj');
             }
         });

@@ -16,6 +16,7 @@ export default class CombatScene extends Phaser.Scene {
         this.scene.launch('UIScene');
 
         this.cameras.main.setBackgroundColor('rgb(245, 245, 220)');
+
     }
 
     update() {
