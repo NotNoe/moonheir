@@ -6,7 +6,7 @@ export default class InputManager extends Phaser.GameObjects.Sprite {
         // Controles
 		this.A = this.scene.input.keyboard.addKey('A');
 		this.D = this.scene.input.keyboard.addKey('D');
-		this.SPACE = this.scene.input.keyboard.addKey('SPACE'); 
+		this.E = this.scene.input.keyboard.addKey('E'); 
 		this.scene.add.existing(this); 
     }
 }

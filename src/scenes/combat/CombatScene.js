@@ -1,7 +1,5 @@
 import Enemy from "../../characters/Enemy";
 import { charInfo } from "../../characters/charInfo";
-// @ts-ignore
-import Seleni from "../../characters/seleni";
 
 // eslint-disable-next-line no-undef
 export default class CombatScene extends Phaser.Scene {
