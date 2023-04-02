@@ -16,8 +16,6 @@ import CombatScene from './scenes/combat/CombatScene.js';
 import UIScene from './scenes/combat/UIScene.js';
 
 const scenes = [];
-scenes.push(CombatScene);
-scenes.push(UIScene);
 scenes.push(LoadScene);
 scenes.push(MenuScene);
 scenes.push(World0_1);
@@ -30,6 +28,8 @@ scenes.push(World1_6);
 scenes.push(World1_7);
 scenes.push(World1_8);
 scenes.push(World1_9);
+scenes.push(CombatScene);
+scenes.push(UIScene);
 
 const config = {
 	type: Phaser.WEBGL,
@@ -48,7 +48,7 @@ const config = {
 			debug: true
 		},
 	},	
-	scene: [CombatScene, UIScene]
+	scene: scenes
 }
 
 export default new Phaser.Game(config)
