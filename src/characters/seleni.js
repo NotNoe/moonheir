@@ -44,11 +44,7 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 
 
 			this.E = this.scene.input.keyboard.addKey('E', true, false);
-			this.space = this.scene.input.keyboard.addKey('SPACE', true, false);
-			this.enter = this.scene.input.keyboard.addKey('Enter', true, false);
 			this.E.on('down', event => this.interactuar());
-			this.space.on('down', event => this.interactuar());
-			this.enter.on('down', event => this.interactuar());
 		}
 		//Animaciones
 		{
@@ -138,22 +134,22 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 	preUpdate(t, dt) {
 		super.preUpdate(t, dt);
 		
-		if(this.A.isDown){
+		if(this.A.isDown || this.LArrow.isDown){
 			this.play('side', true);
 			this.flipX = true;
 			this.char_info.orient = 'left';
 		}
-		else if(this.D.isDown){
+		else if(this.D.isDown|| this.RArrow.isDown){
 			this.play('side', true);
 			this.flipX = false;
 			this.char_info.orient = 'right';
 		}
-		else if(this.S.isDown){
+		else if(this.S.isDown|| this.DArrow.isDown){
 			this.play('down', true);
 			this.flipX = false;
 			this.char_info.orient = 'down';
 		}
-		else if(this.W.isDown){
+		else if(this.W.isDown|| this.UArrow.isDown){
 			this.play('up', true);
 			this.flipX = false;
 			this.char_info.orient = 'up';
