@@ -6,6 +6,8 @@ import Door from './util/door.js';
 import Lock from './util/lock.js';
 import Chest from './util/chest.js';
 import Interactive from './util/interactive.js';
+import Enemy_Data from '../../characters/enemy_data.js';
+import WorldEnemy from './util/worldEnemy.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
@@ -51,6 +53,7 @@ export default class WorldScene extends Phaser.Scene {
 		//Ponemos las puertas (Una panzá de código repetitivo :D)
 		this.addDoors();
 		this.addChest();
+		this.addEnemies();
 	}
 
 	addChest(){
@@ -136,5 +139,16 @@ export default class WorldScene extends Phaser.Scene {
 				this.physics.add.overlap(lock, this.seleni);
 			}
 		}
-	}	
+	}
+	
+	addEnemies(){
+		let enemies = this.scene_data.get_enemies();
+		enemies.forEach(enemy_obj => { //Tiene que tener sprite, hp, type, attack, def (por ahora solo eso).
+			let enemy_data = new Enemy_Data();
+			for (const { name, value } of obj.properties) {
+				enemy_data[name] = value;			
+			}
+			new WorldEnemy(enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
+		});
+	}
 }
