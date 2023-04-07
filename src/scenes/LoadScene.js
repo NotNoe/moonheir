@@ -31,6 +31,7 @@ export default class LoadScene extends Phaser.Scene {
         });
 
         //Carga de sprites
+        this.load.spritesheet('patxi', images_folder + 'patxi.png', {frameWidth: 40, frameHeight: 58});
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
 
         //Carga de imágenes
@@ -42,8 +43,6 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');
-
-
 
 
         //Instancio la barra de carga

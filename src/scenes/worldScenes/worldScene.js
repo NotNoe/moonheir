@@ -12,7 +12,7 @@ import Interactive from './util/interactive.js';
 //tilemap en principio
 
 export default class WorldScene extends Phaser.Scene {
-	char_info; scene_data; scenes_data;
+	char_info; scene_data; scenes_data; layer;
 	constructor(scene_name, tilemap, tileset) {
 		super(scene_name);
 		this.scene_name = scene_name;
@@ -37,16 +37,16 @@ export default class WorldScene extends Phaser.Scene {
 		map.createLayer('Back/Background', this.tileset);
 		map.createLayer('Back/Path', this.tileset);
 		//Creamos la capa de obstáculos y le ponemos colisiones
-		let layer = map.createLayer('Obstacles', this.tileset);
+		this.layer = map.createLayer('Obstacles', this.tileset);
 		// @ts-ignore
-		layer.setCollisionByExclusion(-1, true);
+		this.layer.setCollisionByExclusion(-1, true);
 
 		//Creamos el personaje y hacemos que se choque contra los obstáculos
 		this.seleni = new Seleni(this, this.char_info.pos.x, this.char_info.pos.y);
 		this.seleni.char_info = this.char_info;
 		this.seleni.scene_data = this.scene_data;
 		this.seleni.setCollideWorldBounds(true);
-		this.physics.add.collider(layer, this.seleni);
+		this.physics.add.collider(this.layer, this.seleni);
 
 		//Ponemos las puertas (Una panzá de código repetitivo :D)
 		this.addDoors();
