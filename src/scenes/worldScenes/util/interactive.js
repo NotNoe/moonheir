@@ -25,6 +25,7 @@ export default class Interactive extends Phaser.GameObjects.Zone { //Una vez má
     }
 
     interactuar(){
+        console.log("esta interactuando");
         this.interaccion.interactuar(this); //Todos los objetos con los que se puede interactuar tendrán el método homónimo
                                         //Que además recibe una referencia a la zona por si la necesita para algo (por ejemplo borrarla)
     }

@@ -1,10 +1,12 @@
 //Aqui va a ir tod
 export default class SceneData {
     data = {}; //No es un buen nombre pero es algo pesado cambiarlo. Esto son las puertas y los changers.
-	cofre; //Aquí la información del cofre que haya (tendrá dos campos, 'chest' y colider, y un booleano que dice si está abierto).
+	cofre;
+	enemigo; // Suponemos que solo hay un enemigo
     constructor(map){
         this.carga_intercambios(map);
 		this.carga_cofres(map);
+		this.carga_enemigos(map);
     }
 
 	carga_intercambios(map){
@@ -49,12 +51,28 @@ export default class SceneData {
 		}
 	}
 
+	carga_enemigos(map){
+		let layer = map.getObjectLayer('Enemy');
+		if(layer != null){ // Si es null, es que no hay enemigos
+			this.enemigo = {};
+			layer.objects.forEach(obj => { 
+            	this.enemigo[obj.name] = obj;
+			})
+			this.enemigo.defeated = false;
+		}
+	}
+
 	delete_door(dir){
 		delete this.data[dir]['door'];
 		delete this.data[dir]['lock'];
 	}
-	open_chest(){ //Supuesto que solo hay un cofre y que si se llama a la función es pq este existe.
+
+	open_chest(){ 
 		this.cofre.open = true;
+	}
+
+	defeat_enemy(){
+		this.enemigo.defeated = true;
 	}
 
 }

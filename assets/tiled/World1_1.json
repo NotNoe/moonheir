@@ -55,6 +55,39 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":11,
+         "name":"Enemy",
+         "objects":[
+                {
+                 "height":58,
+                 "id":7,
+                 "name":"patxi",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":40,
+                 "x":500,
+                 "y":375
+                }, 
+                {
+                 "height":60,
+                 "id":9,
+                 "name":"overlap",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":42,
+                 "x":499,
+                 "y":374
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "id":9,
          "layers":[
                 {
@@ -120,8 +153,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":7,
+ "nextlayerid":12,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.0",

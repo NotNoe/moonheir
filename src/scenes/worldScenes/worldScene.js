@@ -1,6 +1,7 @@
 // @ts-nocheck
 // import Phaser from 'phaser'
 import Seleni from '../../characters/seleni.js';
+import Patxi from '../../characters/patxi.js';
 import Changer from './util/changer.js';
 import Door from './util/door.js';
 import Lock from './util/lock.js';
@@ -48,9 +49,31 @@ export default class WorldScene extends Phaser.Scene {
 		this.seleni.setCollideWorldBounds(true);
 		this.physics.add.collider(this.layer, this.seleni);
 
-		//Ponemos las puertas (Una panzá de código repetitivo :D)
+		// Añadimos los interactuables
 		this.addDoors();
 		this.addChest();
+		this.addEnemies();
+	}
+
+	addEnemies(){
+		if(this.scene_data.enemigo != undefined) {
+			console.log("Hay un Enemigo");
+
+			//Ponemos el objeto
+			let enemy_obj = this.scene_data.enemigo.patxi;
+			let overlap_obj = this.scene_data.enemigo.overlap;
+			let defeated = this.scene_data.enemigo.defeated;
+
+			//Pintamos el enemigo
+			let enemy = new Patxi(this, enemy_obj.x, enemy_obj.y, defeated);
+			this.physics.add.collider(enemy, this.seleni);
+			let overlap;
+
+			if(!defeated){ //Solo ponemos la interacción si no se ha interactuado previamente con él
+				overlap = new Interactive(this, overlap_obj.x, overlap_obj.y, overlap_obj.width, overlap_obj.height, this.seleni, enemy, 'patxi');
+				this.physics.add.overlap(overlap, this.seleni);
+			}
+		}
 	}
 
 	addChest(){
