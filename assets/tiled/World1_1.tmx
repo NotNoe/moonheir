@@ -27,14 +27,14 @@
  </objectgroup>
  <group id="9" name="Doors">
   <objectgroup id="10" name="South">
-   <object id="5" name="changer" x="449.833" y="747.792" width="100" height="1">
+   <object id="5" name="changer" x="450" y="749" width="100" height="1">
     <properties>
      <property name="nextScene" value="World0_1"/>
     </properties>
    </object>
   </objectgroup>
   <objectgroup id="5" name="North">
-   <object id="4" name="changer" x="450.727" y="0.545455" width="100" height="1">
+   <object id="4" name="changer" x="450" y="0" width="100" height="1">
     <properties>
      <property name="nextScene" value="World1_2"/>
     </properties>

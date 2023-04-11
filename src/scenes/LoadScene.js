@@ -36,6 +36,7 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de imágenes
         this.load.image("menu_bg", images_folder + "menu_bg.png");
+        this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
         this.load.image('vDoor', images_folder + 'vDoor.png');
         this.load.image('hDoor', images_folder + 'hDoor.png');
