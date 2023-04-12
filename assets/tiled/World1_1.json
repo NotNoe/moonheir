@@ -76,6 +76,11 @@
                          "value":5
                         }, 
                         {
+                         "name":"drop",
+                         "type":"string",
+                         "value":"gold1"
+                        }, 
+                        {
                          "name":"hp",
                          "type":"int",
                          "value":40

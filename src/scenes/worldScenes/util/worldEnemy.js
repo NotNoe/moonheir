@@ -6,6 +6,7 @@ export default class WorldEnemy extends Phaser.Physics.Arcade.Sprite {
         this.enemy_data = enemy_data;
         enemy_data.scene_name = scene_name; //Esto le hace falta para volver
         enemy_data.enemigo = this; //Esto para eliminarlo
+        enemy_data.char_info = scene.seleni.char_info;
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.scene.physics.world.enable(this);

@@ -10,8 +10,7 @@ export default class CombatScene extends Phaser.Scene {
     }
 
     init(enemy_data) {
-        this.enemy_data = enemy_data
-        this.char_info = new charInfo();
+        this.enemy_data = enemy_data;
     }
 
     preload() {
@@ -27,7 +26,7 @@ export default class CombatScene extends Phaser.Scene {
 
         this.turn = 1;
         this.enemy = new Enemy(this, 500, 400);
-        this.seleni = this.char_info;
+        this.char_info = this.enemy_data.char_info;
 
     }
 
@@ -72,6 +71,10 @@ export default class CombatScene extends Phaser.Scene {
 
 
     terminar_combate(){
+        if(this.enemy_data.drop != null){
+            this.char_info.add_key(this.enemy_data.drop);
+            console.log("Conseguido " + this.enemy_data.drop);
+        }
         this.enemy_data.enemigo.destroy();
         this.enemy_data.scene_data.enemigo = null;
         this.scene.stop('CombatScene');
