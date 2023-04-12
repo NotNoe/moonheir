@@ -18,7 +18,7 @@ export default class LoadScene extends Phaser.Scene {
 
         this.scenenames = [];
         //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
-        this.load.image('tileset', tiled_folder + 'tileset-pixilart.png');
+        this.load.image('tileset', tiled_folder + 'pixil_tileset_1.png');
         let tilemaps = [];
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
         this.scenenames.push('World0_1');
@@ -31,10 +31,12 @@ export default class LoadScene extends Phaser.Scene {
         });
 
         //Carga de sprites
+        this.load.spritesheet('patxi', images_folder + 'patxi.png', {frameWidth: 40, frameHeight: 58});
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
 
         //Carga de imágenes
         this.load.image("menu_bg", images_folder + "menu_bg.png");
+        this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
         this.load.image('vDoor', images_folder + 'vDoor.png');
         this.load.image('hDoor', images_folder + 'hDoor.png');
@@ -42,8 +44,6 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');
-
-
 
 
         //Instancio la barra de carga

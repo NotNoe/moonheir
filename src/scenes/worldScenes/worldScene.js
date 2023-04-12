@@ -1,6 +1,7 @@
 // @ts-nocheck
 // import Phaser from 'phaser'
 import Seleni from '../../characters/seleni.js';
+import Patxi from '../../characters/patxi.js';
 import Changer from './util/changer.js';
 import Door from './util/door.js';
 import Lock from './util/lock.js';
@@ -14,7 +15,7 @@ import WorldEnemy from './util/worldEnemy.js';
 //tilemap en principio
 
 export default class WorldScene extends Phaser.Scene {
-	char_info; scene_data; scenes_data;
+	char_info; scene_data; scenes_data; layer;
 	constructor(scene_name, tilemap, tileset) {
 		super(scene_name);
 		this.scene_name = scene_name;
@@ -33,27 +34,42 @@ export default class WorldScene extends Phaser.Scene {
 		let map = this.make.tilemap({
 			key: this.tilemap
 		});
-		this.tileset = map.addTilesetImage('tileset-pixilart', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
+		this.tileset = map.addTilesetImage('pixil_tileset_1', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
 
 		//Creamos el fondo, que no necesita colisiones ni nada
 		map.createLayer('Back/Background', this.tileset);
 		map.createLayer('Back/Path', this.tileset);
 		//Creamos la capa de obstáculos y le ponemos colisiones
-		let layer = map.createLayer('Obstacles', this.tileset);
+		this.layer = map.createLayer('Obstacles', this.tileset);
 		// @ts-ignore
-		layer.setCollisionByExclusion(-1, true);
+		this.layer.setCollisionByExclusion(-1, true);
 
 		//Creamos el personaje y hacemos que se choque contra los obstáculos
 		this.seleni = new Seleni(this, this.char_info.pos.x, this.char_info.pos.y);
 		this.seleni.char_info = this.char_info;
 		this.seleni.scene_data = this.scene_data;
 		this.seleni.setCollideWorldBounds(true);
-		this.physics.add.collider(layer, this.seleni);
+		this.physics.add.collider(this.layer, this.seleni);
 
-		//Ponemos las puertas (Una panzá de código repetitivo :D)
+		// Añadimos los interactuables
 		this.addDoors();
 		this.addChest();
 		this.addEnemies();
+	}
+
+	addEnemies(){
+		if(this.scene_data.enemigo != undefined && !this.scene_data.enemigo.defeated) {
+			console.log("Hay un Enemigo");
+
+			//Ponemos el objeto
+			let enemy_obj = this.scene_data.enemigo.data;
+
+			let enemy_data = new Enemy_Data();
+			for (const { name, value } of enemy_obj.properties) {
+				enemy_data[name] = value;
+			}
+			new WorldEnemy(enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
+		}
 	}
 
 	addChest(){
@@ -104,26 +120,26 @@ export default class WorldScene extends Phaser.Scene {
 							switch(direccion){
 								case 'north':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.game.renderer.height - this.seleni.displayHeight / 2 - 1 - 10;
+									this.char_info.pos.y = this.game.renderer.height - this.seleni.displayHeight / 2 - 1;
 									console.log("Iniciando escena: " + nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}
 								case 'west':{
-									this.char_info.pos.x = this.game.renderer.width - this.seleni.displayWidth / 2 - 1 - 10;
+									this.char_info.pos.x = this.game.renderer.width - this.seleni.displayWidth / 2 - 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'east':{
-									this.char_info.pos.x = this.seleni.displayWidth / 2 + 1 + 10;
+									this.char_info.pos.x = this.seleni.displayWidth / 2 + 1;
 									this.char_info.pos.y = this.game.renderer.height / 2;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
 								}case 'south':{
 									this.char_info.pos.x = this.game.renderer.width / 2;
-									this.char_info.pos.y = this.seleni.displayHeight / 2 + 1 + 10;
+									this.char_info.pos.y = this.seleni.displayHeight / 2 + 1;
 									console.log("Iniciando escena: " +nextScene);
 									this.scene.start(nextScene, {char_info:this.char_info, scenes_data:this.scenes_data});
 									break;
@@ -141,14 +157,5 @@ export default class WorldScene extends Phaser.Scene {
 		}
 	}
 	
-	addEnemies(){
-		let enemies = this.scene_data.get_enemies();
-		enemies.forEach(enemy_obj => { //Tiene que tener sprite, hp, type, attack, def (por ahora solo eso).
-			let enemy_data = new Enemy_Data();
-			for (const { name, value } of obj.properties) {
-				enemy_data[name] = value;			
-			}
-			new WorldEnemy(enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
-		});
-	}
+	
 }
