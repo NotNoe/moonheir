@@ -78,7 +78,7 @@
                         {
                          "name":"drop",
                          "type":"string",
-                         "value":"gold1"
+                         "value":"none"
                         }, 
                         {
                          "name":"hp",

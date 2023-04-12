@@ -71,7 +71,7 @@ export default class CombatScene extends Phaser.Scene {
 
 
     terminar_combate(){
-        if(this.enemy_data.drop != null){
+        if(this.enemy_data.drop != "none"){
             this.char_info.add_key(this.enemy_data.drop);
             console.log("Conseguido " + this.enemy_data.drop);
         }
