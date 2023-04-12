@@ -79,8 +79,12 @@ export default class WorldScene extends Phaser.Scene {
 			let chest_obj = this.scene_data.cofre.chest;
 			let overlap_obj = this.scene_data.cofre.overlap;
 			let open = this.scene_data.cofre.open;
+			let drop;
+			for (const { name, value } of chest_obj.properties) {
+				if(name == "drop") drop = value;
+			}
 			//Pintamos el cofre
-			let chest = new Chest(this, chest_obj.x, chest_obj.y, open);
+			let chest = new Chest(this, chest_obj.x, chest_obj.y, open, drop);
 			this.physics.add.collider(chest, this.seleni);
 			let overlap;
 			if(!open){ //Solo ponemos la interacción si estaba cerrado
