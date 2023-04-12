@@ -1,7 +1,6 @@
 // @ts-nocheck
 // import Phaser from 'phaser'
 import Seleni from '../../characters/seleni.js';
-import Patxi from '../../characters/patxi.js';
 import Changer from './util/changer.js';
 import Door from './util/door.js';
 import Lock from './util/lock.js';
@@ -68,7 +67,8 @@ export default class WorldScene extends Phaser.Scene {
 			for (const { name, value } of enemy_obj.properties) {
 				enemy_data[name] = value;
 			}
-			new WorldEnemy(enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
+			enemy_data.scene_data = this.scene_data;
+			new WorldEnemy(this, enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
 		}
 	}
 

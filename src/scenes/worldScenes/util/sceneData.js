@@ -58,7 +58,7 @@ export default class SceneData {
 			layer.objects.forEach(obj => { 
             	this.enemigo.data = obj;
 			})
-			this.enemigo.defeated = false;
+			//this.enemigo.defeated = false;
 		}
 	}
 
@@ -69,10 +69,6 @@ export default class SceneData {
 
 	open_chest(){ //Supuesto que solo hay un cofre y que si se llama a la función es pq este existe.
 		this.cofre.open = true;
-	}
-
-	defeat_enemy(){
-		this.enemigo.defeated = true;
 	}
 
 }

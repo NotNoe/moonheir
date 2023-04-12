@@ -60,26 +60,41 @@
          "name":"Enemy",
          "objects":[
                 {
+                 "class":"",
                  "height":58,
                  "id":7,
                  "name":"patxi",
+                 "properties":[
+                        {
+                         "name":"attack",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"def",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"hp",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"patxi"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"plant"
+                        }],
                  "rotation":0,
-                 "type":"",
                  "visible":true,
                  "width":40,
                  "x":500,
                  "y":375
-                }, 
-                {
-                 "height":60,
-                 "id":9,
-                 "name":"overlap",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":42,
-                 "x":499,
-                 "y":374
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -96,6 +111,7 @@
                  "name":"South",
                  "objects":[
                         {
+                         "class":"",
                          "height":1,
                          "id":5,
                          "name":"changer",
@@ -106,7 +122,6 @@
                                  "value":"World0_1"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":100,
                          "x":450,
@@ -124,6 +139,7 @@
                  "name":"North",
                  "objects":[
                         {
+                         "class":"",
                          "height":1,
                          "id":4,
                          "name":"changer",
@@ -134,7 +150,6 @@
                                  "value":"World1_2"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":100,
                          "x":450,
@@ -157,7 +172,7 @@
  "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.0",
+ "tiledversion":"1.9.2",
  "tileheight":50,
  "tilesets":[
         {
@@ -175,6 +190,6 @@
         }],
  "tilewidth":50,
  "type":"map",
- "version":"1.10",
+ "version":"1.9",
  "width":20
 }
