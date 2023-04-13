@@ -63,6 +63,7 @@ export default class UIScene extends Phaser.Scene {
         });
         
         // PULSAR OPCIÓN
+        // e key is down es bool
         this.inputManager.E.on('down', () => {
             if(this.selected == 0){
                 this.dialog.setText('Seleni ataca al enemigo', true);
@@ -103,8 +104,8 @@ export default class UIScene extends Phaser.Scene {
         }
     }
 
-    setEnemyDialog(){
-        this.dialog.setText('Enemigo pium pium', true);
+    setDialog(text){
+        this.dialog.setText(text, true);
     }
 
     desactivaInput() {
