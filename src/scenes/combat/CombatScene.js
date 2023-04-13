@@ -9,8 +9,8 @@ export default class CombatScene extends Phaser.Scene {
         this.elapsedTime = 0;
     }
 
-    init() {
-        this.char_info = new charInfo();
+    init(enemy_data) {
+        this.enemy_data = enemy_data;
     }
 
     preload() {
@@ -26,7 +26,7 @@ export default class CombatScene extends Phaser.Scene {
 
         this.turn = 1;
         this.enemy = new Enemy(this, 500, 400);
-        this.seleni = this.char_info;
+        this.char_info = this.enemy_data.char_info;
 
     }
 
@@ -40,6 +40,7 @@ export default class CombatScene extends Phaser.Scene {
 
     seleniCura(){
         this.turnoJugadorAcabado = true;
+        this.terminar_combate(); //Pongo para probar si puedo terminar el combate
     }
 
     // @ts-ignore
@@ -65,5 +66,19 @@ export default class CombatScene extends Phaser.Scene {
             this.sceneUI.setEnemyDialog(); // da error pero funciona :)
             this.turn = 0;
         }
+    }
+
+
+
+    terminar_combate(){
+        if(this.enemy_data.drop != "none"){
+            this.char_info.add_key(this.enemy_data.drop);
+            console.log("Conseguido " + this.enemy_data.drop);
+        }
+        this.enemy_data.enemigo.destroy();
+        this.enemy_data.scene_data.enemigo = null;
+        this.scene.stop('CombatScene');
+        this.scene.stop('UIScene');
+        this.scene.resume(this.enemy_data.scene_name);
     }
 }
