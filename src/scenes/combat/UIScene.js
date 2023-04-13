@@ -14,7 +14,6 @@ export default class UIScene extends Phaser.Scene {
     }
 
     init() {
-        this.dialog.init();
     }
 
     preload() {
@@ -66,19 +65,21 @@ export default class UIScene extends Phaser.Scene {
         // e key is down es bool
         this.inputManager.E.on('down', () => {
             if(this.selected == 0){
-                this.dialog.setText('Seleni ataca al enemigo', true);
-                console.log('atq');
                 // @ts-ignore
-                this.sceneCombat.seleniAtaca();
+                var dmg = this.sceneCombat.seleniAtaca();
+                this.dialog.setText('Seleni ataca al enemigo. Hace ' + dmg + ' de daño.', true);
+                console.log('atq');
+                
+                
             }
             else if(this.selected == 1){
-                this.dialog.setText('Seleni se defiende', true);
+                this.dialog.setText('Seleni se defiende.', true);
                 console.log('def');
                 // @ts-ignore
                 this.sceneCombat.seleniDefiende();
             }
             else if(this.selected == 2){
-                this.dialog.setText('Seleni ha usado una poción', true);
+                this.dialog.setText('Seleni ha usado una poción.', true);
                 console.log('obj');
                 // @ts-ignore
                 this.sceneCombat.seleniCura();
