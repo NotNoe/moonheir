@@ -3,7 +3,7 @@
  <editorsettings>
   <export target="World1_1.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="pixil_tileset_1.tsx"/>
+ <tileset firstgid="1" source="tileset-pixilart.tsx"/>
  <group id="3" name="Back">
   <layer id="1" name="Background" width="20" height="15">
    <data encoding="base64">
