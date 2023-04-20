@@ -126,7 +126,7 @@ export default class WorldScene extends Phaser.Scene {
 		for (const direccion in this.scene_data.data) {
 			let v1 = this.scene_data.data[direccion];
 			let lock, door;
-			let type, obj_aux;
+			let type, img, obj_aux;
 			for (const tipo in v1) {
 				let obj = v1[tipo];
 				switch (tipo) {
@@ -138,7 +138,10 @@ export default class WorldScene extends Phaser.Scene {
 						break;
 					}
 					case 'door': {
-						door = new Door(this, obj.x, obj.y, direccion == 'south' || direccion == 'north');
+						for (const { name, value } of obj.properties) {
+							if (name == "img") img = value;
+						}
+						door = new Door(this, obj.x, obj.y, img);
 						this.physics.add.collider(door, this.seleni);
 						break;
 					}
