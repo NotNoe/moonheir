@@ -65,15 +65,7 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
     }
 
-    preUpdate(){
-        this.t.destroy();
-        let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
-        text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon();
-        this.t = this.scene.add.text(0.75*this.width, 0, text, {fontSize: '35px'});
-        this.t.setFontFamily('CustomFont');
-        this.t.setColor('#FFFFFF');
-        this.info.add(this.t);
-    }
+
 
     usePotion(){
         let char_info = this.inventoryData.char_info;
@@ -81,10 +73,17 @@ export default class InfoPage extends Phaser.GameObjects.Container {
             char_info.potions--;
             char_info.health += 0.56*char_info.max_health;
             if(char_info.health > char_info.max_health) char_info.health = char_info.max_health;
+            let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
+            text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon() + "\nPotions: " + this.inventoryData.char_info.potions;
+            this.t.setText(text);
         }
     }
 
     changeWeapon(){
 
+
+        let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
+        text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon() + "\nPotions: " + this.inventoryData.char_info.potions;
+        this.t.setText(text);
     }
 }

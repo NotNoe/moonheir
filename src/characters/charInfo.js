@@ -10,7 +10,6 @@ export class charInfo{
     orient = 'down';
     max_health = 54;
     health = 54;
-    max_health = 54;
     attack = 57;
     defense = 56;
     potions = 5;
