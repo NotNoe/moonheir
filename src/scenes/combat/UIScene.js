@@ -19,8 +19,6 @@ export default class UIScene extends Phaser.Scene {
 
     preload() {
         this.selected = 0;
-        this.load.image('btn', '../../assets/images/btn.png');
-        this.load.image('btn_selected', '../../assets/images/btn_selected.png');
     }
 
     create() {

@@ -14,6 +14,7 @@ import World1_8 from './scenes/worldScenes/World1/World1_8.js';
 import World1_9 from './scenes/worldScenes/World1/World1_9.js';
 import CombatScene from './scenes/combat/CombatScene.js';
 import UIScene from './scenes/combat/UIScene.js';
+import InventoryScene from './scenes/Menu/InventoryScene.js';
 
 const scenes = [];
 scenes.push(LoadScene);
@@ -30,6 +31,7 @@ scenes.push(World1_8);
 scenes.push(World1_9);
 scenes.push(CombatScene);
 scenes.push(UIScene);
+scenes.push(InventoryScene)
 
 const config = {
 	type: Phaser.WEBGL,

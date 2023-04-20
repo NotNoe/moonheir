@@ -128,22 +128,22 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 		aux.normalize();
 		this.setVelocity(aux.x * SPEED, aux.y * SPEED);
 		
-		if(this.A.isDown){
+		if(aux.x < 0){
 			this.play('side', true);
 			this.flipX = true;
 			this.char_info.orient = 'left';
 		}
-		else if(this.D.isDown){
+		else if(aux.x > 0){
 			this.play('side', true);
 			this.flipX = false;
 			this.char_info.orient = 'right';
 		}
-		else if(this.S.isDown){
+		else if(aux.y > 0){
 			this.play('down', true);
 			this.flipX = false;
 			this.char_info.orient = 'down';
 		}
-		else if(this.W.isDown){
+		else if(aux.y < 0){
 			this.play('up', true);
 			this.flipX = false;
 			this.char_info.orient = 'up';

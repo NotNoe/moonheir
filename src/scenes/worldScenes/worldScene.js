@@ -8,6 +8,7 @@ import Chest from './util/chest.js';
 import Interactive from './util/interactive.js';
 import Enemy_Data from '../../characters/enemy_data.js';
 import WorldEnemy from './util/worldEnemy.js';
+import InventoryData from '../Menu/InventoryData.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
@@ -15,6 +16,7 @@ import WorldEnemy from './util/worldEnemy.js';
 
 export default class WorldScene extends Phaser.Scene {
 	char_info; scene_data; scenes_data; layer;
+	esc; Q;
 	constructor(scene_name, tilemap, tileset) {
 		super(scene_name);
 		this.scene_name = scene_name;
@@ -54,6 +56,32 @@ export default class WorldScene extends Phaser.Scene {
 		this.addDoors();
 		this.addChest();
 		this.addEnemies();
+
+		//Controles para menu
+		this.esc = this.input.keyboard.addKey('esc', true, true);
+		this.esc.on('down', event => {
+			let inventoryData = new InventoryData();
+			inventoryData.scene_name = this.scene_name;
+			inventoryData.char_info = this.char_info;
+			inventoryData.page_number = 2; //TODO:Cambiar si cambia el num de pags
+			this.seleni.dir.x = 0;
+			this.seleni.dir.y = 0;
+			this.scene.launch('InventoryScene', inventoryData);
+			this.scene.pause(this.scene_name); //Se pausa
+			
+		});
+		this.Q = this.input.keyboard.addKey('q', true, true);
+		this.Q.on('down', event => {
+			let inventoryData = new InventoryData();
+			inventoryData.scene_name = this.scene_name;
+			inventoryData.char_info = this.char_info;
+			inventoryData.page_number = 0;
+			this.seleni.dir.x = 0;
+			this.seleni.dir.y = 0;
+			this.scene.launch('InventoryScene', inventoryData);
+			this.scene.pause(this.scene_name); //Se pausa
+			
+		});
 	}
 
 	addEnemies(){
