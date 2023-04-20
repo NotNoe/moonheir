@@ -8,6 +8,7 @@ export class charInfo{
     currentWeapon = "fire";
     unlockedWeapons = ["fire"];
     orient = 'down';
+    max_health = 54;
     health = 54;
     max_health = 54;
     attack = 57;
