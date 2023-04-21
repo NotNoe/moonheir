@@ -40,6 +40,7 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('play_button', images_folder + 'play-pixilart.png');
         this.load.image('vDoorWater', images_folder + 'vDoorWater.png');
         this.load.image('hDoorPlants', images_folder + 'hDoorPlants.png');
+        this.load.image('hDoorRocks', images_folder + 'hDoorRocks.png');
         this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
         this.load.image('chest', images_folder + 'chest.png');
 
