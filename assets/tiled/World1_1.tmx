@@ -22,8 +22,16 @@
   </data>
  </layer>
  <objectgroup id="11" name="Enemy">
-  <object id="7" name="patxi" x="500" y="375" width="40" height="58"/>
-  <object id="9" name="overlap" x="499" y="374" width="42" height="60"/>
+  <object id="7" name="patxi" x="500" y="375" width="40" height="58">
+   <properties>
+    <property name="attack" value="61"/>
+    <property name="def" value="54"/>
+    <property name="drop" value="none"/>
+    <property name="hp" value="40"/>
+    <property name="sprite" value="patxi"/>
+    <property name="type" value="plant"/>
+   </properties>
+  </object>
  </objectgroup>
  <group id="9" name="Doors">
   <objectgroup id="10" name="South">

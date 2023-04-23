@@ -63,23 +63,43 @@
                  "height":58,
                  "id":7,
                  "name":"patxi",
+                 "properties":[
+                        {
+                         "name":"attack",
+                         "type":"string",
+                         "value":"61"
+                        }, 
+                        {
+                         "name":"def",
+                         "type":"string",
+                         "value":"54"
+                        }, 
+                        {
+                         "name":"drop",
+                         "type":"string",
+                         "value":"none"
+                        }, 
+                        {
+                         "name":"hp",
+                         "type":"string",
+                         "value":"40"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"patxi"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"plant"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":40,
                  "x":500,
                  "y":375
-                }, 
-                {
-                 "height":60,
-                 "id":9,
-                 "name":"overlap",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":42,
-                 "x":499,
-                 "y":374
                 }],
          "opacity":1,
          "type":"objectgroup",
