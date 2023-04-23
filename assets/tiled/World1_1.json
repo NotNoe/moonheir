@@ -60,6 +60,7 @@
          "name":"Enemy",
          "objects":[
                 {
+                 "class":"",
                  "height":58,
                  "id":7,
                  "name":"patxi",
@@ -95,7 +96,6 @@
                          "value":"plant"
                         }],
                  "rotation":0,
-                 "type":"",
                  "visible":true,
                  "width":40,
                  "x":500,
@@ -116,6 +116,7 @@
                  "name":"South",
                  "objects":[
                         {
+                         "class":"",
                          "height":1,
                          "id":5,
                          "name":"changer",
@@ -126,7 +127,6 @@
                                  "value":"World0_1"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":100,
                          "x":450,
@@ -144,6 +144,7 @@
                  "name":"North",
                  "objects":[
                         {
+                         "class":"",
                          "height":1,
                          "id":4,
                          "name":"changer",
@@ -154,7 +155,6 @@
                                  "value":"World1_2"
                                 }],
                          "rotation":0,
-                         "type":"",
                          "visible":true,
                          "width":100,
                          "x":450,
@@ -177,7 +177,7 @@
  "nextobjectid":11,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.0",
+ "tiledversion":"1.9.2",
  "tileheight":50,
  "tilesets":[
         {
@@ -195,6 +195,6 @@
         }],
  "tilewidth":50,
  "type":"map",
- "version":"1.10",
+ "version":"1.9",
  "width":20
 }

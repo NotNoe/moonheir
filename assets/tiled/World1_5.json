@@ -49,6 +49,12 @@
                  "height":50,
                  "id":5,
                  "name":"chest",
+                 "properties":[
+                        {
+                         "name":"drop",
+                         "type":"string",
+                         "value":"potion"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

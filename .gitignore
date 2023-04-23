@@ -25,4 +25,3 @@ dist-ssr
 
 #Latex aux files
 *.synctex.gz
-docs/*.pdf

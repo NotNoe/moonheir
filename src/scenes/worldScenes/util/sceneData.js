@@ -14,7 +14,7 @@ export default class SceneData {
 		if(layer != null) {
             this.data['north'] = {};
 			layer.objects.forEach(obj => {
-            	this.data['north'][obj.name] = obj;
+				this.data['north'][obj.name] = obj;
 			})
 		}
 		layer = map.getObjectLayer('Doors/South');
@@ -30,7 +30,7 @@ export default class SceneData {
             layer.objects.forEach(obj => {
                 this.data['east'][obj.name] = obj;
             })
-	    }
+		}
 		layer = map.getObjectLayer('Doors/West');
 		if(layer != null) {
 			this.data['west'] = {};
@@ -45,7 +45,7 @@ export default class SceneData {
 		if(layer != null){ //Si es null, es que no hay cofres en esta pantalla.
 			this.cofre = {};
 			layer.objects.forEach(obj => { //La capa tiene que tener dos objetos, uno con name chest y otro con name overlap (por ejemplo)
-            	this.cofre[obj.name] = obj;
+				this.cofre[obj.name] = obj;
 			})
 			this.cofre.open = false;
 		}
@@ -55,10 +55,10 @@ export default class SceneData {
 		let layer = map.getObjectLayer('Enemy');
 		if(layer != null){ // Si es null, es que no hay enemigos
 			this.enemigo = {};
-			layer.objects.forEach(obj => { 
-            	this.enemigo[obj.name] = obj;
+			layer.objects.forEach(obj => {
+				this.enemigo.data = obj;
 			})
-			this.enemigo.defeated = false;
+			//this.enemigo.defeated = false;
 		}
 	}
 
@@ -67,12 +67,8 @@ export default class SceneData {
 		delete this.data[dir]['lock'];
 	}
 
-	open_chest(){ 
+	open_chest(){ //Supuesto que solo hay un cofre y que si se llama a la función es pq este existe.
 		this.cofre.open = true;
-	}
-
-	defeat_enemy(){
-		this.enemigo.defeated = true;
 	}
 
 }

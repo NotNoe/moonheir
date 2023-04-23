@@ -101,6 +101,12 @@
                  "height":50,
                  "id":1,
                  "name":"chest",
+                 "properties":[
+                        {
+                         "name":"drop",
+                         "type":"string",
+                         "value":"potion"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -135,7 +141,7 @@
         {
          "columns":14,
          "firstgid":1,
-         "image":"pixil_tileset_1.png",
+         "image":"..\/..\/..\/..\/moonheir\/assets\/tiled\/pixil_tileset_1.png",
          "imageheight":700,
          "imagewidth":700,
          "margin":0,

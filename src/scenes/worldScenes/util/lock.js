@@ -10,7 +10,7 @@ export default class Lock extends Interactive {
 
     interactuar(){
         //Aqui va el codigo de interactuar, que tendrá que checkear si puede abrir y abrirla en caso
-        if(this.seleni.char_info.currentWeapon == this.unlock){
+        if(this.seleni.char_info.can_open(this.unlock)){
             super.interactuar(); //Solo interactua con su objeto si puede.
         }else{
             console.log("No tienes " + this.unlock);

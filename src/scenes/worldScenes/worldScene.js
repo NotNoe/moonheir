@@ -1,12 +1,13 @@
 // @ts-nocheck
 // import Phaser from 'phaser'
 import Seleni from '../../characters/seleni.js';
-import Patxi from '../../characters/patxi.js';
 import Changer from './util/changer.js';
 import Door from './util/door.js';
 import Lock from './util/lock.js';
 import Chest from './util/chest.js';
 import Interactive from './util/interactive.js';
+import Enemy_Data from '../../characters/enemy_data.js';
+import WorldEnemy from './util/worldEnemy.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
@@ -56,23 +57,18 @@ export default class WorldScene extends Phaser.Scene {
 	}
 
 	addEnemies(){
-		if(this.scene_data.enemigo != undefined) {
+		if(this.scene_data.enemigo != undefined && !this.scene_data.enemigo.defeated) {
 			console.log("Hay un Enemigo");
 
 			//Ponemos el objeto
-			let enemy_obj = this.scene_data.enemigo.patxi;
-			let overlap_obj = this.scene_data.enemigo.overlap;
-			let defeated = this.scene_data.enemigo.defeated;
+			let enemy_obj = this.scene_data.enemigo.data;
 
-			//Pintamos el enemigo
-			let enemy = new Patxi(this, enemy_obj.x, enemy_obj.y, defeated);
-			this.physics.add.collider(enemy, this.seleni);
-			let overlap;
-
-			if(!defeated){ //Solo ponemos la interacción si no se ha interactuado previamente con él
-				overlap = new Interactive(this, overlap_obj.x, overlap_obj.y, overlap_obj.width, overlap_obj.height, this.seleni, enemy, 'patxi');
-				this.physics.add.overlap(overlap, this.seleni);
+			let enemy_data = new Enemy_Data();
+			for (const { name, value } of enemy_obj.properties) {
+				enemy_data[name] = value;
 			}
+			enemy_data.scene_data = this.scene_data;
+			new WorldEnemy(this, enemy_obj.x, enemy_obj.y, enemy_data, this.scene_name);
 		}
 	}
 
@@ -83,8 +79,12 @@ export default class WorldScene extends Phaser.Scene {
 			let chest_obj = this.scene_data.cofre.chest;
 			let overlap_obj = this.scene_data.cofre.overlap;
 			let open = this.scene_data.cofre.open;
+			let drop;
+			for (const { name, value } of chest_obj.properties) {
+				if(name == "drop") drop = value;
+			}
 			//Pintamos el cofre
-			let chest = new Chest(this, chest_obj.x, chest_obj.y, open);
+			let chest = new Chest(this, chest_obj.x, chest_obj.y, open, drop);
 			this.physics.add.collider(chest, this.seleni);
 			let overlap;
 			if(!open){ //Solo ponemos la interacción si estaba cerrado
@@ -162,5 +162,7 @@ export default class WorldScene extends Phaser.Scene {
 				this.physics.add.overlap(lock, this.seleni);
 			}
 		}
-	}	
+	}
+	
+	
 }
