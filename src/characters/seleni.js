@@ -1,6 +1,3 @@
-// @ts-nocheck
-// import Phaser from 'phaser'
-
 const SPEED = 200;
 
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{

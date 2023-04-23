@@ -1,5 +1,4 @@
 import { charInfo } from "../characters/charInfo.js";
-import WorldScene from "./worldScenes/worldScene.js";
 
 export default class MenuScene extends Phaser.Scene{
     scenes_data;

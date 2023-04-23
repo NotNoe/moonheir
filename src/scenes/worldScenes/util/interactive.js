@@ -1,9 +1,3 @@
-/*
-La idea es hacer una clase abstracta para lo siguiente:
-Tenemos algo con lo que queremos que el personaje, al pulsar el botón de interacción cerca suyo, interactue.
-El mediador de esa acción será esta clase
-*/
-
 export default class Interactive extends Phaser.GameObjects.Zone { //Una vez más, una clase abstracta para las cosas con las que seleni interactua
     constructor(scene, x, y, height, width, seleni, interaccion, type){
         super(scene, x, y, height, width);

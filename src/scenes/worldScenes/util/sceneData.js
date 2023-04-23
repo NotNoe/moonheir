@@ -1,4 +1,3 @@
-//Aqui va a ir tod
 export default class SceneData {
     data = {}; //No es un buen nombre pero es algo pesado cambiarlo. Esto son las puertas y los changers.
 	cofre;

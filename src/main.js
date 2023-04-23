@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser'
 import LoadScene  from './scenes/LoadScene.js';
 import MenuScene  from './scenes/MenuScene.js';
