@@ -4,16 +4,11 @@
 const SPEED = 200;
 
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{
-    //Creo que cada escena tiene que tener un personaje distinto, porque el Sprite
-    //se crea asociado a la escena
     interactuable; char_info; scene_data;
     constructor(scene, x, y) {
         super(scene, x, y, 'seleni');
         scene.add.existing(this);
         scene.physics.add.existing(this);
-		this.displayWidth = 57;
-		this.displayHeight = 78;
-
 		//Controles
 		{
 			this.W = this.scene.input.keyboard.addKey('W', true, true);

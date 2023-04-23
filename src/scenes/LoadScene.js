@@ -32,14 +32,17 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sprites
         this.load.spritesheet('patxi', images_folder + 'patxi.png', {frameWidth: 40, frameHeight: 58});
-        this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 19, frameHeight: 26});
+        this.load.spritesheet('iratxo', images_folder + 'iratxo.png', {frameWidth: 60, frameHeight: 48});
+        this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 47, frameHeight: 68});
 
         //Carga de imágenes
         this.load.image("menu_bg", images_folder + "menu_bg.png");
         this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
-        this.load.image('vDoor', images_folder + 'vDoor.png');
-        this.load.image('hDoor', images_folder + 'hDoor.png');
+        this.load.image('vDoorWater', images_folder + 'vDoorWater.png');
+        this.load.image('hDoorPlants', images_folder + 'hDoorPlants.png');
+        this.load.image('hDoorRocks', images_folder + 'hDoorRocks.png');
+        this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
         this.load.image('chest', images_folder + 'chest.png');
         this.load.image('btn', images_folder + 'btn.png');
         this.load.image('btn_selected', images_folder + 'btn_selected.png');
