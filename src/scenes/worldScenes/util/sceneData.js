@@ -55,8 +55,8 @@ export default class SceneData {
 		let layer = map.getObjectLayer('Enemy');
 		if(layer != null){ // Si es null, es que no hay enemigos
 			this.enemigo = {};
-			layer.objects.forEach(obj => { 
-            	this.enemigo.data = obj;
+			layer.objects.forEach(obj => {
+				this.enemigo.data = obj;
 			})
 			//this.enemigo.defeated = false;
 		}

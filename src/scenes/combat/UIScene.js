@@ -64,20 +64,15 @@ export default class UIScene extends Phaser.Scene {
         this.inputManager.E.on('down', () => {
             if(this.selected == 0){
                 // @ts-ignore
-                var dmg = this.sceneCombat.seleniAtaca();
-                //this.dialog.setText('Seleni ataca al enemigo. Hace ' + dmg + ' de daño.', true);
+                this.sceneCombat.seleniAtaca();
                 console.log('atq');
-                
-                
             }
             else if(this.selected == 1){
-                //this.dialog.setText('Seleni se defiende.', true);
                 console.log('def');
                 // @ts-ignore
                 this.sceneCombat.seleniDefiende();
             }
             else if(this.selected == 2){
-                //this.dialog.setText('Seleni ha usado una poción.', true);
                 console.log('obj');
                 // @ts-ignore
                 this.sceneCombat.seleniCura();

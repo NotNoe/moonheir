@@ -20,26 +20,26 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 			this.DArrow = this.scene.input.keyboard.addKey('DOWN', true, true);
 			this.RArrow = this.scene.input.keyboard.addKey('RIGHT', true, true);
 
-			this.W.on('down', event => this.goUp(true));
-			this.A.on('down', event => this.goLeft(true));
-			this.S.on('down', event => this.goDown(true));
-			this.D.on('down', event => this.goRight(true));
-			this.UArrow.on('down', event => this.goUp(true));
-			this.LArrow.on('down', event => this.goLeft(true));
-			this.DArrow.on('down', event => this.goDown(true));
-			this.RArrow.on('down', event => this.goRight(true));
-			this.W.on('up', event => this.goUp(false));
-			this.A.on('up', event => this.goLeft(false));
-			this.S.on('up', event => this.goDown(false));
-			this.D.on('up', event => this.goRight(false));
-			this.UArrow.on('up', event => this.goUp(false));
-			this.LArrow.on('up', event => this.goLeft(false));
-			this.DArrow.on('up', event => this.goDown(false));
-			this.RArrow.on('up', event => this.goRight(false));
+			this.W.on('down', () => this.goUp(true));
+			this.A.on('down', () => this.goLeft(true));
+			this.S.on('down', () => this.goDown(true));
+			this.D.on('down', () => this.goRight(true));
+			this.UArrow.on('down', () => this.goUp(true));
+			this.LArrow.on('down', () => this.goLeft(true));
+			this.DArrow.on('down', () => this.goDown(true));
+			this.RArrow.on('down', () => this.goRight(true));
+			this.W.on('up', () => this.goUp(false));
+			this.A.on('up', () => this.goLeft(false));
+			this.S.on('up', () => this.goDown(false));
+			this.D.on('up', () => this.goRight(false));
+			this.UArrow.on('up', () => this.goUp(false));
+			this.LArrow.on('up', () => this.goLeft(false));
+			this.DArrow.on('up', () => this.goDown(false));
+			this.RArrow.on('up', () => this.goRight(false));
 
 
 			this.E = this.scene.input.keyboard.addKey('E', true, false);
-			this.E.on('down', event => this.interactuar());
+			this.E.on('down', () => this.interactuar());
 		}
 		//Animaciones
 		{
