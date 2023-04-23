@@ -1,5 +1,5 @@
-import DialogBox from "./DialogBox";
-import InputManager from "../input/InputManager";
+import DialogBox from "./DialogBox.js";
+import InputManager from "../input/InputManager.js";
 
 // eslint-disable-next-line no-undef
 export default class UIScene extends Phaser.Scene {

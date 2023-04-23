@@ -1,5 +1,5 @@
-import Enemy from "../../characters/Enemy";
-import DialogBox from "./DialogBox";
+import Enemy from "../../characters/Enemy.js";
+import DialogBox from "./DialogBox.js";
 
 // eslint-disable-next-line no-undef
 export default class CombatScene extends Phaser.Scene {
