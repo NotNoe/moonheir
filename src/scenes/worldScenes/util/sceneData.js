@@ -14,7 +14,7 @@ export default class SceneData {
 		if(layer != null) {
             this.data['north'] = {};
 			layer.objects.forEach(obj => {
-            	this.data['north'][obj.name] = obj;
+				this.data['north'][obj.name] = obj;
 			})
 		}
 		layer = map.getObjectLayer('Doors/South');
@@ -30,7 +30,7 @@ export default class SceneData {
             layer.objects.forEach(obj => {
                 this.data['east'][obj.name] = obj;
             })
-	    }
+		}
 		layer = map.getObjectLayer('Doors/West');
 		if(layer != null) {
 			this.data['west'] = {};
@@ -45,7 +45,7 @@ export default class SceneData {
 		if(layer != null){ //Si es null, es que no hay cofres en esta pantalla.
 			this.cofre = {};
 			layer.objects.forEach(obj => { //La capa tiene que tener dos objetos, uno con name chest y otro con name overlap (por ejemplo)
-            	this.cofre[obj.name] = obj;
+				this.cofre[obj.name] = obj;
 			})
 			this.cofre.open = false;
 		}
