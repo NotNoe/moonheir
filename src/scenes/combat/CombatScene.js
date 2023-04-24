@@ -5,16 +5,16 @@ import DialogBox from "./DialogBox.js";
 export default class CombatScene extends Phaser.Scene {
     constructor(){
         super({key : 'CombatScene'});
-        this.dialog = new DialogBox(this);
-        this.turnoJugadorAcabado = false;
-        this.elapsedTime = 0;
-        this.finalTextTime = 0;
-        this.end = false;
     }
 
     init(enemy_data) {
         this.enemy_data = enemy_data;
         this.char_info = enemy_data.char_info;
+        this.dialog = new DialogBox(this);
+        this.turnoJugadorAcabado = false;
+        this.elapsedTime = 0;
+        this.finalTextTime = 0;
+        this.end = false;
     }
 
     create() {
@@ -160,7 +160,7 @@ export default class CombatScene extends Phaser.Scene {
             this.scene.stop('CombatScene');
             this.scene.stop('UIScene');
             this.scene.resume(this.enemy_data.scene_name);
-        }, 4000);
+        }, 1000);
         
     }
 }
