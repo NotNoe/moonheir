@@ -35,7 +35,7 @@
  </objectgroup>
  <group id="6" name="Doors">
   <objectgroup id="8" name="South">
-   <object id="2" x="450" y="749" width="100" height="1">
+   <object id="2" name="changer" x="450" y="749" width="100" height="1">
     <properties>
      <property name="nextScene" value="World1_4"/>
     </properties>
