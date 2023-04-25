@@ -1,5 +1,4 @@
 import SceneData from './worldScenes/util/sceneData.js';
-import WorldScene from './worldScenes/worldScene.js';
 
 const assets_folder = 'assets/'
 const tiled_folder = assets_folder + 'tiled/';
@@ -32,6 +31,7 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sprites
         this.load.spritesheet('patxi', images_folder + 'patxi.png', {frameWidth: 40, frameHeight: 58});
+        this.load.spritesheet('iratxo', images_folder + 'iratxo.png', {frameWidth: 60, frameHeight: 48});
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 47, frameHeight: 68});
 
         //Carga de imágenes
@@ -39,16 +39,26 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image("book_bg", images_folder + "book_bg.png");
         this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
+        
         this.load.image('vDoorWater', images_folder + 'vDoorWater.png');
         this.load.image('hDoorPlants', images_folder + 'hDoorPlants.png');
+        this.load.image('hDoorRocks', images_folder + 'hDoorRocks.png');
+        this.load.image('hDoorLog', images_folder + 'hDoorLog.png');
         this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
+
         this.load.image('chest', images_folder + 'chest.png');
         this.load.image('dialog_box', images_folder + 'dialog_box.png');
 
 
         //Botones
-        this.load.image('btn', '../../assets/images/btn.png');
-        this.load.image('btn_selected', '../../assets/images/btn_selected.png');
+        this.load.image('btn', images_folder + 'btn.png');
+        this.load.image('btn_selected', images_folder + 'btn_selected.png');
+        this.load.image('attack_btn', images_folder + 'atack_btn.png');
+        this.load.image('attack_btn_selected', images_folder + 'atack_pressed_btn.png');
+        this.load.image('def_btn', images_folder + 'protect_btn.png');
+        this.load.image('def_btn_selected', images_folder + 'protect_pressed_btn.png');
+        this.load.image('obj_btn', images_folder + 'health_btn.png');
+        this.load.image('obj_btn_selected', images_folder + 'health_pressed_btn.png');
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');

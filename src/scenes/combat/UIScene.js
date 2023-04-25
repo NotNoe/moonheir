@@ -1,5 +1,5 @@
-import DialogBox from "./DialogBox";
-import InputManager from "../input/InputManager";
+import DialogBox from "./DialogBox.js";
+import InputManager from "../input/InputManager.js";
 
 // eslint-disable-next-line no-undef
 export default class UIScene extends Phaser.Scene {
@@ -27,19 +27,19 @@ export default class UIScene extends Phaser.Scene {
 
         // Botones
         // Atq
-        this.atq_btn = this.add.sprite(125, btn_height, 'btn');
+        this.atq_btn = this.add.sprite(125, btn_height, 'attack_btn');
         this.atq_btn.setOrigin(0, 0);
         this.atq_btn.setScale(1.5, 1.5);
         this.atq_btn.setInteractive();
 
         // Def
-        this.def_btn = this.add.sprite(125 * 2 + 144, btn_height, 'btn');
+        this.def_btn = this.add.sprite(125 * 2 + 144, btn_height, 'def_btn');
         this.def_btn.setOrigin(0, 0);
         this.def_btn.setScale(1.5, 1.5);
         this.def_btn.setInteractive();
 
         // Obj
-        this.obj_btn = this.add.sprite(125 * 3 + 288, btn_height, 'btn');
+        this.obj_btn = this.add.sprite(125 * 3 + 288, btn_height, 'obj_btn');
         this.obj_btn.setOrigin(0, 0);
         this.obj_btn.setScale(1.5, 1.5);
         this.obj_btn.setInteractive();
@@ -64,20 +64,15 @@ export default class UIScene extends Phaser.Scene {
         this.inputManager.E.on('down', () => {
             if(this.selected == 0){
                 // @ts-ignore
-                var dmg = this.sceneCombat.seleniAtaca();
-                this.dialog.setText('Seleni ataca al enemigo. Hace ' + dmg + ' de daño.', true);
+                this.sceneCombat.seleniAtaca();
                 console.log('atq');
-                
-                
             }
             else if(this.selected == 1){
-                this.dialog.setText('Seleni se defiende.', true);
                 console.log('def');
                 // @ts-ignore
                 this.sceneCombat.seleniDefiende();
             }
             else if(this.selected == 2){
-                this.dialog.setText('Seleni ha usado una poción.', true);
                 console.log('obj');
                 // @ts-ignore
                 this.sceneCombat.seleniCura();
@@ -87,19 +82,19 @@ export default class UIScene extends Phaser.Scene {
 
     update() {
         if(this.selected == 0) {
-            this.atq_btn.setTexture('btn_selected');
-            this.def_btn.setTexture('btn');
-            this.obj_btn.setTexture('btn');
+            this.atq_btn.setTexture('attack_btn_selected');
+            this.def_btn.setTexture('def_btn');
+            this.obj_btn.setTexture('obj_btn');
         }
         else if(this.selected == 1) {
-            this.atq_btn.setTexture('btn');
-            this.def_btn.setTexture('btn_selected');
-            this.obj_btn.setTexture('btn');
+            this.atq_btn.setTexture('attack_btn');
+            this.def_btn.setTexture('def_btn_selected');
+            this.obj_btn.setTexture('obj_btn');
         }
         else if(this.selected == 2) {
-            this.atq_btn.setTexture('btn');
-            this.def_btn.setTexture('btn');
-            this.obj_btn.setTexture('btn_selected');
+            this.atq_btn.setTexture('attack_btn');
+            this.def_btn.setTexture('def_btn');
+            this.obj_btn.setTexture('obj_btn_selected');
         }
     }
 

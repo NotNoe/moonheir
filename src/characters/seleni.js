@@ -1,6 +1,3 @@
-// @ts-nocheck
-// import Phaser from 'phaser'
-
 const SPEED = 200;
 
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{
@@ -30,7 +27,7 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 
 
 			this.E = this.scene.input.keyboard.addKey('E', true, false);
-			this.E.on('down', event => this.interactuar());
+			this.E.on('down', () => this.interactuar());
 		}
 		//Animaciones
 		{
