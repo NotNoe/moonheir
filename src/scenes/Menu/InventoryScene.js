@@ -38,6 +38,7 @@ export default class InventoryScene extends Phaser.Scene {
             }
         })
 
+
     }
 
     exit(){

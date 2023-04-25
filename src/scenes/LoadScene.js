@@ -43,6 +43,7 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('hDoorPlants', images_folder + 'hDoorPlants.png');
         this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
         this.load.image('chest', images_folder + 'chest.png');
+        this.load.image('dialog_box', images_folder + 'dialog_box.png');
 
 
         //Botones

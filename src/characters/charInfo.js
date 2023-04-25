@@ -23,7 +23,7 @@ export class charInfo{
     unlock_page(i){this.pages[i]=true;}
 
     can_open(type){
-        if(type == "fire" || type == "water" || type == "earth") return type == this.currentWeapon;
+        if(type == "fire" || type == "water" || type == "plant") return type == this.currentWeapon;
         return this.keys.includes(type);
     }
 
@@ -38,6 +38,6 @@ export class charInfo{
     getWeapon(){
         if(this.currentWeapon == "fire") return "Fire";
         if(this.currentWeapon == "water") return "Water";
-        if(this.currentWeapon == "earth") return "Earth";
+        if(this.currentWeapon == "plant") return "Plant";
     }
 }

@@ -15,6 +15,7 @@ import World1_9 from './scenes/worldScenes/World1/World1_9.js';
 import CombatScene from './scenes/combat/CombatScene.js';
 import UIScene from './scenes/combat/UIScene.js';
 import InventoryScene from './scenes/Menu/InventoryScene.js';
+import ChangeWeaponScene from './scenes/Menu/ChangeWeapon.js';
 
 const scenes = [];
 scenes.push(LoadScene);
@@ -31,7 +32,8 @@ scenes.push(World1_8);
 scenes.push(World1_9);
 scenes.push(CombatScene);
 scenes.push(UIScene);
-scenes.push(InventoryScene)
+scenes.push(InventoryScene);
+scenes.push(ChangeWeaponScene);
 
 const config = {
 	type: Phaser.WEBGL,

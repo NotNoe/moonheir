@@ -1,4 +1,5 @@
 export default class InfoPage extends Phaser.GameObjects.Container {
+    inventoryData;
     constructor(scene, x, y, inventoryData){
         super(scene, x, y);
         this.height = 650;
@@ -23,7 +24,7 @@ export default class InfoPage extends Phaser.GameObjects.Container {
         this.t.setColor('#FFFFFF');
         this.info.add(this.t);
 
-
+        this.scene.events.on('resume', this.refreshText, this);
 
 
         //Botones
@@ -65,23 +66,23 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
     }
 
-
-
     usePotion(){
         let char_info = this.inventoryData.char_info;
         if(char_info.potions > 0 && char_info.health < char_info.max_health){
             char_info.potions--;
             char_info.health += 0.56*char_info.max_health;
             if(char_info.health > char_info.max_health) char_info.health = char_info.max_health;
-            let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
-            text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon() + "\nPotions: " + this.inventoryData.char_info.potions;
-            this.t.setText(text);
+            this.refreshText();
         }
     }
 
     changeWeapon(){
+        this.scene.scene.launch('ChangeWeaponScene', this.inventoryData);
+		this.scene.scene.pause('InventoryScene'); //Se pausa
+    }
 
-
+    refreshText(){
+        console.log("Text uptadted");
         let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
         text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon() + "\nPotions: " + this.inventoryData.char_info.potions;
         this.t.setText(text);
