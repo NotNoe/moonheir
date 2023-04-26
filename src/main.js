@@ -15,6 +15,7 @@ import CombatScene from './scenes/combat/CombatScene.js';
 import UIScene from './scenes/combat/UIScene.js';
 import InventoryScene from './scenes/Menu/InventoryScene.js';
 import ChangeWeaponScene from './scenes/Menu/ChangeWeapon.js';
+import DialogBoxScene from './scenes/worldScenes/util/DialogBox.js';
 
 const scenes = [];
 scenes.push(LoadScene);
@@ -33,6 +34,7 @@ scenes.push(CombatScene);
 scenes.push(UIScene);
 scenes.push(InventoryScene);
 scenes.push(ChangeWeaponScene);
+scenes.push(DialogBoxScene);
 
 const config = {
 	type: Phaser.WEBGL,
