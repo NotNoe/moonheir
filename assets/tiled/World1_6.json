@@ -98,8 +98,8 @@
                  "type":"",
                  "visible":true,
                  "width":40,
-                 "x":482.333333333333,
-                 "y":378.666666666667
+                 "x":482.333,
+                 "y":378.667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -118,7 +118,7 @@
                         {
                          "height":1,
                          "id":2,
-                         "name":"",
+                         "name":"changer",
                          "properties":[
                                 {
                                  "name":"nextScene",
