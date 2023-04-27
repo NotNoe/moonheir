@@ -60,7 +60,7 @@
          "name":"Enemy",
          "objects":[
                 {
-                 "height":72,
+                 "height":90,
                  "id":1,
                  "name":"iratxo",
                  "properties":[
@@ -97,7 +97,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":90,
+                 "width":72,
                  "x":450,
                  "y":370
                 }],
@@ -149,7 +149,7 @@
  "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.0",
+ "tiledversion":"1.10.1",
  "tileheight":50,
  "tilesets":[
         {
