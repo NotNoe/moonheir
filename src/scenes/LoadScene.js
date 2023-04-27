@@ -31,9 +31,10 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de sprites
         this.load.spritesheet('patxi', images_folder + 'patxi.png', {frameWidth: 40, frameHeight: 58});
-        this.load.spritesheet('iratxo', images_folder + 'iratxo.png', {frameWidth: 60, frameHeight: 48});
         this.load.spritesheet('seleni', images_folder + 'seleni.png', {frameWidth: 47, frameHeight: 68});
 
+        this.load.image('iratxo', images_folder + 'iratxo.png');
+        
         //Carga de imágenes
         this.load.image("menu_bg", images_folder + "menu_bg.png");
         this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");

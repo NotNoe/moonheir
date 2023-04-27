@@ -14,9 +14,16 @@ export default class HealthBar extends Phaser.GameObjects.Container {
     }
 
     preUpdate(t, dt){
-        if(this.char_info.health < this.currentHealth){
+        if(this.char_info.health < this.currentHealth){ // le hacen damages
             this.currentHealth -= 0.4;
             if(this.currentHealth < this.char_info.health){
+                this.currentHealth = this.char_info.health;
+            }
+            this.healthBar.setScale((this.currentHealth / this.char_info.max_health) * 0.6, 1);
+        }
+        else{ // se cura
+            this.currentHealth += 0.4;
+            if(this.currentHealth > this.char_info.health){
                 this.currentHealth = this.char_info.health;
             }
             this.healthBar.setScale((this.currentHealth / this.char_info.max_health) * 0.6, 1);
