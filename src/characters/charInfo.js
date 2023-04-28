@@ -14,6 +14,8 @@ export class charInfo{
     defense = 56;
     potions = 5;
 
+    stone = null;
+
     keys = [];
     drops = [];
 
