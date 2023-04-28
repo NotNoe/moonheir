@@ -1,6 +1,4 @@
 export default class WorldEnemy extends Phaser.Physics.Arcade.Sprite {
-
-
     constructor(scene, x, y, enemy_data, scene_name){
         super(scene, x, y, enemy_data.sprite);
         this.enemy_data = enemy_data;

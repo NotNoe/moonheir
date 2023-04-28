@@ -1,5 +1,4 @@
 import SceneData from './worldScenes/util/sceneData.js';
-import WorldScene from './worldScenes/worldScene.js';
 
 const assets_folder = 'assets/'
 const tiled_folder = assets_folder + 'tiled/';
@@ -47,8 +46,12 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
 
         this.load.image('chest', images_folder + 'chest.png');
-        this.load.image('btn', images_folder + 'btn.png');
-        this.load.image('btn_selected', images_folder + 'btn_selected.png');
+        this.load.image('attack_btn', images_folder + 'atack_btn.png');
+        this.load.image('attack_btn_selected', images_folder + 'atack_pressed_btn.png');
+        this.load.image('def_btn', images_folder + 'protect_btn.png');
+        this.load.image('def_btn_selected', images_folder + 'protect_pressed_btn.png');
+        this.load.image('obj_btn', images_folder + 'health_btn.png');
+        this.load.image('obj_btn_selected', images_folder + 'health_pressed_btn.png');
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');

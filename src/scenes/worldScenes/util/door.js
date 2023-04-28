@@ -1,6 +1,3 @@
-// @ts-nocheck
-
-
 export default class Door extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, type) {
         super(scene, x, y, type);
