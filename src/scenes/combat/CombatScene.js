@@ -1,6 +1,5 @@
 import Enemy from "../../characters/Enemy.js";
 import DialogBox from "./DialogBox.js";
-import HealthBar from "./HealthBar.js";
 
 // eslint-disable-next-line no-undef
 export default class CombatScene extends Phaser.Scene {
@@ -35,7 +34,7 @@ export default class CombatScene extends Phaser.Scene {
         this.turn = 0;
 
         // enemigo
-        this.enemy = new Enemy(this, 500, 400, this.enemy_data.sprite);
+        this.enemy = new Enemy(this, 500, 400);
         this.enemy.setScale(3);
         this.char_info = this.enemy_data.char_info;
 
@@ -49,9 +48,7 @@ export default class CombatScene extends Phaser.Scene {
                 this.dialog.setText('Aiba la ordiga, ' + this.enemy_data.sprite + ' se ha cruzado en tu camino', true);
             }
         }
-
-        this.healthBar = new HealthBar(this, 0, 0, this.char_info);
-        this.add.existing(this.healthBar);
+        
     }
 
     damage(level, atq, def, base_pot){

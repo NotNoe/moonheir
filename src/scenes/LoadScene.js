@@ -24,7 +24,7 @@ export default class LoadScene extends Phaser.Scene {
         tilemaps.push({key: 'tilemapWorld0_2', url: tiled_folder + 'World0_2.json'});
         this.scenenames.push('World0_1');
         this.scenenames.push('World0_2');
-        for(let i = 1; i <= 7; i++){
+        for(let i = 1; i <= 9; i++){
             tilemaps.push({key: 'tilemapWorld1_' + i, url: tiled_folder + 'World1_' + i + '.json'});
             this.scenenames.push('World1_' + i);
         }
@@ -63,10 +63,6 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('def_btn_selected', images_folder + 'protect_pressed_btn.png');
         this.load.image('obj_btn', images_folder + 'health_btn.png');
         this.load.image('obj_btn_selected', images_folder + 'health_pressed_btn.png');
-
-        this.load.image('seleniCloseUp', images_folder + 'seleniCloseUp.png');
-        this.load.image('greenBar', images_folder + 'green_bar.png');
-        this.load.image('redBar', images_folder + 'red_bar.png');
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');
