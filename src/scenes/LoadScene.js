@@ -18,9 +18,12 @@ export default class LoadScene extends Phaser.Scene {
         this.scenenames = [];
         //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
         this.load.image('tileset', tiled_folder + 'pixil_tileset_1.png');
+        this.load.image('tileset2', tiled_folder + 'pixil_tileset_2.png');
         let tilemaps = [];
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
+        tilemaps.push({key: 'tilemapWorld0_2', url: tiled_folder + 'World0_2.json'});
         this.scenenames.push('World0_1');
+        this.scenenames.push('World0_2');
         for(let i = 1; i <= 9; i++){
             tilemaps.push({key: 'tilemapWorld1_' + i, url: tiled_folder + 'World1_' + i + '.json'});
             this.scenenames.push('World1_' + i);
