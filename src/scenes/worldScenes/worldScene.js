@@ -40,15 +40,7 @@ export default class WorldScene extends Phaser.Scene {
 			key: this.tilemap
 		});
 
-		if (this.tileset == 'tileset'){
-			this.tileset = map.addTilesetImage('pixil_tileset_1', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
-			console.log("Mal");
-		}
-			else {
-			this.tileset = map.addaddTilesetImage('pixil_tileset_2', 'tileset2');
-			console.log("Bien");
-		}
-			
+		this.tileset = map.addTilesetImage('pixil_tileset_1', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
 
 		//Creamos el fondo, que no necesita colisiones ni nada
 		map.createLayer('Back/Background', this.tileset);
