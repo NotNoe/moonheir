@@ -3,7 +3,7 @@ export default class MenuPage extends Phaser.GameObjects.Container {
         super(scene, x, y);
         this.height = 650;
         this.width = 400;
-        this.exit_btn = this.scene.add.sprite(this.width / 2, this.height / 2, 'btn');
+        this.exit_btn = this.scene.add.sprite(this.width / 2, this.height / 2, 'exit_btn');
         this.exit_btn.setScale(1.5, 1.5);
         this.exit_btn.setInteractive();
         this.add(this.exit_btn);
@@ -16,11 +16,11 @@ export default class MenuPage extends Phaser.GameObjects.Container {
 
         this.S.on('down', event => {
             this.selected = 0;
-            this.exit_btn.setTexture('btn_selected');
+            this.exit_btn.setTexture('exit_btn');
         })
         this.W.on('down', event => {
             this.selected = 0;
-            this.exit_btn.setTexture('btn_selected');
+            this.exit_btn.setTexture('exit_btn_selected');
         })
 
         this.E.on('down', event => {

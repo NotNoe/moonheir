@@ -64,6 +64,10 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('def_btn_selected', images_folder + 'protect_pressed_btn.png');
         this.load.image('obj_btn', images_folder + 'health_btn.png');
         this.load.image('obj_btn_selected', images_folder + 'health_pressed_btn.png');
+        this.load.image('weapon_btn', images_folder + 'weapons_btn.png');
+        this.load.image('weapon_btn_selected', images_folder + 'weapons_pressed_btn.png');
+        this.load.image('exit_btn', images_folder + 'exit_btn.png');
+        this.load.image('exit_btn_selected', images_folder + 'exit_pressed_btn.png');
 
         this.load.image('seleniCloseUp', images_folder + 'seleniCloseUp.png');
         this.load.image('greenBar', images_folder + 'green_bar.png');
