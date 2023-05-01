@@ -15,9 +15,9 @@ export default class WorldEnemy extends Phaser.Physics.Arcade.Sprite {
                 ob2 = aux;
             } //ob1 siempre seleni y ob2 siempre yo
             // @ts-ignore
-            ob1.setVelocityX(0);
+            ob1.dir.x = 0;
             // @ts-ignore
-            ob1.setVelocityY(0);
+            ob1.dir.y = 0;
             this.scene.scene.pause(scene_name); //Pausa esta escena.
             this.scene.scene.launch('CombatScene', enemy_data);
 

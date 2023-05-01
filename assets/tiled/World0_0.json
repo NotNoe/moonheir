@@ -1,0 +1,171 @@
+{ "compressionlevel":-1,
+ "height":15,
+ "infinite":false,
+ "layers":[
+        {
+         "id":2,
+         "layers":[
+                {
+                 "data":[59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59,
+                    59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59],
+                 "height":15,
+                 "id":1,
+                 "name":"Background",
+                 "opacity":1,
+                 "type":"tilelayer",
+                 "visible":true,
+                 "width":20,
+                 "x":0,
+                 "y":0
+                }],
+         "name":"Back",
+         "opacity":1,
+         "type":"group",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":3,
+         "name":"Table",
+         "objects":[
+                {
+                 "class":"",
+                 "height":100,
+                 "id":1,
+                 "name":"table",
+                 "rotation":0,
+                 "visible":true,
+                 "width":100,
+                 "x":750,
+                 "y":100
+                }, 
+                {
+                 "class":"",
+                 "height":102,
+                 "id":2,
+                 "name":"interactive",
+                 "rotation":0,
+                 "visible":true,
+                 "width":102,
+                 "x":749,
+                 "y":99
+                }],
+         "offsetx":-2,
+         "offsety":-4,
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":6,
+         "layers":[
+                {
+                 "draworder":"topdown",
+                 "id":5,
+                 "name":"South",
+                 "objects":[
+                        {
+                         "class":"",
+                         "height":1,
+                         "id":8,
+                         "name":"changer",
+                         "properties":[
+                                {
+                                 "name":"nextScene",
+                                 "type":"string",
+                                 "value":"World0_0"
+                                }],
+                         "rotation":0,
+                         "visible":true,
+                         "width":100,
+                         "x":463,
+                         "y":749
+                        }],
+                 "opacity":1,
+                 "type":"objectgroup",
+                 "visible":true,
+                 "x":0,
+                 "y":0
+                }],
+         "name":"Doors",
+         "opacity":1,
+         "type":"group",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":4,
+         "name":"Bed",
+         "objects":[
+                {
+                 "class":"",
+                 "height":150,
+                 "id":4,
+                 "name":"bed",
+                 "rotation":0,
+                 "visible":true,
+                 "width":100,
+                 "x":150,
+                 "y":50
+                }, 
+                {
+                 "class":"",
+                 "height":152,
+                 "id":5,
+                 "name":"interactive",
+                 "rotation":0,
+                 "visible":true,
+                 "width":102,
+                 "x":149,
+                 "y":49
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":7,
+ "nextobjectid":9,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.9.2",
+ "tileheight":50,
+ "tilesets":[
+        {
+         "columns":14,
+         "firstgid":1,
+         "image":"pixil_tileset_1.png",
+         "imageheight":700,
+         "imagewidth":700,
+         "margin":0,
+         "name":"pixil_tileset_1",
+         "spacing":0,
+         "tilecount":196,
+         "tileheight":50,
+         "tilewidth":50
+        }],
+ "tilewidth":50,
+ "type":"map",
+ "version":"1.9",
+ "width":20
+}
