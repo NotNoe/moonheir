@@ -16,10 +16,10 @@ export default class LoadScene extends Phaser.Scene {
     preload(){ //La idea es que esta escena cargue todos los recursos que necesitemos en todo el juego
 
         this.scenenames = [];
-        //Tilesets
-        this.load.image('tileset', tiled_folder + 'pixil_tileset_1.png');
-        this.load.image('tileset2', tiled_folder + 'pixil_tileset_2.png');
-        this.load.image('tileset3', tiled_folder + 'pixil_tileset_3.png');
+        //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
+        this.load.image('pixil_tileset_1', tiled_folder + 'pixil_tileset_1.png');
+        this.load.image('pixil_tileset_2', tiled_folder + 'pixil_tileset_2.png');
+        this.load.image('pixil_tileset_3', tiled_folder + 'pixil_tileset_3.png');
 
         let tilemaps = [];
 
@@ -52,6 +52,7 @@ export default class LoadScene extends Phaser.Scene {
 
         //Carga de imágenes
         this.load.image("menu_bg", images_folder + "menu_bg.png");
+        this.load.image("book_bg", images_folder + "book_bg.png");
         this.load.image("euskadi_bg", images_folder + "euskadi_bg.png");
         this.load.image('play_button', images_folder + 'play-pixilart.png');
         
@@ -62,12 +63,28 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('hDoorFire', images_folder + 'hDoorFire.png');
 
         this.load.image('chest', images_folder + 'chest.png');
+        this.load.image('dialog_box', images_folder + 'dialog_box.png');
+        this.load.image('bed', images_folder + 'bed.png');
+        this.load.image('table', images_folder + 'table.png');
+
+
+        //Botones
+        this.load.image('btn', images_folder + 'btn.png');
+        this.load.image('btn_selected', images_folder + 'btn_selected.png');
         this.load.image('attack_btn', images_folder + 'atack_btn.png');
         this.load.image('attack_btn_selected', images_folder + 'atack_pressed_btn.png');
         this.load.image('def_btn', images_folder + 'protect_btn.png');
         this.load.image('def_btn_selected', images_folder + 'protect_pressed_btn.png');
         this.load.image('obj_btn', images_folder + 'health_btn.png');
         this.load.image('obj_btn_selected', images_folder + 'health_pressed_btn.png');
+        this.load.image('weapon_btn', images_folder + 'weapons_btn.png');
+        this.load.image('weapon_btn_selected', images_folder + 'weapons_pressed_btn.png');
+        this.load.image('exit_btn', images_folder + 'exit_btn.png');
+        this.load.image('exit_btn_selected', images_folder + 'exit_pressed_btn.png');
+
+        this.load.image('seleniCloseUp', images_folder + 'seleniCloseUp.png');
+        this.load.image('greenBar', images_folder + 'green_bar.png');
+        this.load.image('redBar', images_folder + 'red_bar.png');
 
         //Carga de sonidos
         this.load.audio('music', audio_folder + 'POL-treasure-match-short.wav');
@@ -90,14 +107,10 @@ export default class LoadScene extends Phaser.Scene {
         this.scene.start('MenuScene', this.scenes_data);
     }
 
-    loadMaps(scene_names){ //Esta funcion se va a encargar de cargar los mapas :D
+    loadMaps(scene_names){
         let scenes_data = {};
         scene_names.forEach(sceneName => {
-            let map = this.make.tilemap({
-                key: 'tilemap' + sceneName
-            });
-            let scene_data = new SceneData(map);
-            scenes_data[sceneName] = scene_data;
+            scenes_data[sceneName] = null;
         });
         return scenes_data;
     }

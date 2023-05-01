@@ -1,38 +1,29 @@
 const SPEED = 200;
 
 export default class Seleni extends Phaser.Physics.Arcade.Sprite{
-    interactuable; char_info; scene_data;
+    //Creo que cada escena tiene que tener un personaje distinto, porque el Sprite
+    //se crea asociado a la escena
+    interactuable; char_info; scene_data; dir;
     constructor(scene, x, y) {
         super(scene, x, y, 'seleni');
         scene.add.existing(this);
         scene.physics.add.existing(this);
+		this.dir = new Phaser.Math.Vector2(0,0);
 		//Controles
 		{
 			this.W = this.scene.input.keyboard.addKey('W', true, true);
 			this.A = this.scene.input.keyboard.addKey('A', true, true);
 			this.S = this.scene.input.keyboard.addKey('S', true, true);
 			this.D = this.scene.input.keyboard.addKey('D', true, true);
-			this.UArrow = this.scene.input.keyboard.addKey('UP', true, true);
-			this.LArrow = this.scene.input.keyboard.addKey('LEFT', true, true);
-			this.DArrow = this.scene.input.keyboard.addKey('DOWN', true, true);
-			this.RArrow = this.scene.input.keyboard.addKey('RIGHT', true, true);
 
-			this.W.on('down', () => this.goUp(true));
-			this.A.on('down', () => this.goLeft(true));
-			this.S.on('down', () => this.goDown(true));
-			this.D.on('down', () => this.goRight(true));
-			this.UArrow.on('down', () => this.goUp(true));
-			this.LArrow.on('down', () => this.goLeft(true));
-			this.DArrow.on('down', () => this.goDown(true));
-			this.RArrow.on('down', () => this.goRight(true));
-			this.W.on('up', () => this.goUp(false));
-			this.A.on('up', () => this.goLeft(false));
-			this.S.on('up', () => this.goDown(false));
-			this.D.on('up', () => this.goRight(false));
-			this.UArrow.on('up', () => this.goUp(false));
-			this.LArrow.on('up', () => this.goLeft(false));
-			this.DArrow.on('up', () => this.goDown(false));
-			this.RArrow.on('up', () => this.goRight(false));
+			this.W.on('down', event => this.goUp(true));
+			this.A.on('down', event => this.goLeft(true));
+			this.S.on('down', event => this.goDown(true));
+			this.D.on('down', event => this.goRight(true));
+			this.W.on('up', event => this.goUp(false));
+			this.A.on('up', event => this.goLeft(false));
+			this.S.on('up', event => this.goDown(false));
+			this.D.on('up', event => this.goRight(false));
 
 
 			this.E = this.scene.input.keyboard.addKey('E', true, false);
@@ -86,28 +77,28 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
     }
     goUp(b){
         if(b)
-            this.setVelocityY(-SPEED);
+            this.dir.y = -1;
         else
-            this.setVelocityY(0);
+            this.dir.y = 0;
     }
     goLeft(b){
         if(b)
-            this.setVelocityX(-SPEED);
+		this.dir.x = -1;
         else
-            this.setVelocityX(0);
+		this.dir.x = 0;
     }
     goRight(b){
         if(b)
-            this.setVelocityX(SPEED);
+		this.dir.x = 1;
         else
-            this.setVelocityX(0);
+        this.dir.x = 0;
         
     }
     goDown(b){
         if(b)
-            this.setVelocityY(SPEED);
+		this.dir.y = 1;
         else
-            this.setVelocityY(0);
+		this.dir.y = 0;
     }
 
     deleteInteractuable(gm){
@@ -125,23 +116,28 @@ export default class Seleni extends Phaser.Physics.Arcade.Sprite{
 
 	preUpdate(t, dt) {
 		super.preUpdate(t, dt);
+
+		let aux = new Phaser.Math.Vector2(0,0);
+		aux.copy(this.dir);
+		aux.normalize();
+		this.setVelocity(aux.x * SPEED, aux.y * SPEED);
 		
-		if(this.A.isDown || this.LArrow.isDown){
+		if(aux.x < 0){
 			this.play('side', true);
 			this.flipX = true;
 			this.char_info.orient = 'left';
 		}
-		else if(this.D.isDown|| this.RArrow.isDown){
+		else if(aux.x > 0){
 			this.play('side', true);
 			this.flipX = false;
 			this.char_info.orient = 'right';
 		}
-		else if(this.S.isDown|| this.DArrow.isDown){
+		else if(aux.y > 0){
 			this.play('down', true);
 			this.flipX = false;
 			this.char_info.orient = 'down';
 		}
-		else if(this.W.isDown|| this.UArrow.isDown){
+		else if(aux.y < 0){
 			this.play('up', true);
 			this.flipX = false;
 			this.char_info.orient = 'up';
