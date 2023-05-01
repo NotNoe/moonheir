@@ -5,21 +5,21 @@ export class charInfo{
     }
 
     pos = {x: 0, y:0} //Posición en la que debe crearse el personaje en una escena
-    currentWeapon = "fire";
-    unlockedWeapons = ["fire"];
+    currentWeapon = "none";
+    unlockedWeapons = [];
     orient = 'down';
     max_health = 54;
     health = 54;
     attack = 57;
     defense = 56;
-    potions = 5;
+    potions = 0;
 
-    stone = null;
+    stone = "fire";
 
     keys = [];
     drops = [];
 
-    pages = [true, true, false, false, false, true];  //Las paginas desbloqueadas
+    pages = [true, true, true, true, true, true, true, true];  //Las paginas desbloqueadas
 
     has_page(i){return this.pages[i];}
     unlock_page(i){this.pages[i]=true;}
@@ -38,8 +38,9 @@ export class charInfo{
     }
 
     getWeapon(){
-        if(this.currentWeapon == "fire") return "Fire";
-        if(this.currentWeapon == "water") return "Water";
-        if(this.currentWeapon == "plant") return "Plant";
+        if(this.currentWeapon == "fire") return "Fuego";
+        if(this.currentWeapon == "water") return "Agua";
+        if(this.currentWeapon == "plant") return "Planta";
+        return "Vacío"
     }
 }

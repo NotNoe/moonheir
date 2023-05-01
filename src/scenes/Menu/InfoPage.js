@@ -17,14 +17,12 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
         this.info = this.scene.add.container(this.width/2, 0.25*this.height);
         this.add(this.info);
-        let text =  "Hp: " + inventoryData.char_info.health + "\nAttack: " + inventoryData.char_info.attack;
-        text += "\nDefense: " + inventoryData.char_info.defense + "\nWeapon: " + inventoryData.char_info.getWeapon() + "\nPotions: " + inventoryData.char_info.potions;
+        let text =  "Vida: " + this.inventoryData.char_info.health + "\nAtaque: " + this.inventoryData.char_info.attack;
+        text += "\nDefensa: " + this.inventoryData.char_info.defense + "\nArma: " + this.inventoryData.char_info.getWeapon() + "\nPociones: " + this.inventoryData.char_info.potions;
         this.t = this.scene.add.text(this.width/4, 0, text, {fontSize: '35px'}).setOrigin(0.5,0.5);
         this.t.setFontFamily('CustomFont');
         this.t.setColor('#000000');
         this.info.add(this.t);
-
-        this.scene.events.on('resume', this.refreshText, this);
 
 
         //Botones
@@ -63,6 +61,8 @@ export default class InfoPage extends Phaser.GameObjects.Container {
             if(this.selected == 1)
                 this.changeWeapon()
         })
+        this.scene.events.off('resume');
+        this.scene.events.on('resume', this.refreshText, this);
 
     }
 
@@ -83,8 +83,8 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
     refreshText(){
         console.log("Text uptadted");
-        let text =  "Hp: " + this.inventoryData.char_info.health + "\nAttack: " + this.inventoryData.char_info.attack;
-        text += "\nDefense: " + this.inventoryData.char_info.defense + "\nWeapon: " + this.inventoryData.char_info.getWeapon() + "\nPotions: " + this.inventoryData.char_info.potions;
+        let text =  "Vida: " + this.inventoryData.char_info.health + "\nAtaque: " + this.inventoryData.char_info.attack;
+        text += "\nDefensa: " + this.inventoryData.char_info.defense + "\nArma: " + this.inventoryData.char_info.getWeapon() + "\nPociones: " + this.inventoryData.char_info.potions;
         this.t.setText(text);
     }
 }

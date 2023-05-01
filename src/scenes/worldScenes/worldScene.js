@@ -75,7 +75,7 @@ export default class WorldScene extends Phaser.Scene {
 			let inventoryData = new InventoryData();
 			inventoryData.scene_name = this.scene_name;
 			inventoryData.char_info = this.char_info;
-			inventoryData.page_number = 2; //TODO:Cambiar si cambia el num de pags
+			inventoryData.page_number = 3; 
 			this.seleni.dir.x = 0;
 			this.seleni.dir.y = 0;
 			this.scene.launch('InventoryScene', inventoryData);

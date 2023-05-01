@@ -16,7 +16,7 @@ export default class MenuPage extends Phaser.GameObjects.Container {
 
         this.S.on('down', event => {
             this.selected = 0;
-            this.exit_btn.setTexture('exit_btn');
+            this.exit_btn.setTexture('exit_btn_selected');
         })
         this.W.on('down', event => {
             this.selected = 0;

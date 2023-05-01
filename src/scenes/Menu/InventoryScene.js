@@ -3,7 +3,7 @@ import Book from "./Book.js";
 export default class InventoryScene extends Phaser.Scene {
     inventoryData; Q; esc;
 
-    MAXIMO_PAGINAS = 2;
+    MAXIMO_PAGINAS = 3;
     constructor(){
         super({key: 'InventoryScene'});
     }

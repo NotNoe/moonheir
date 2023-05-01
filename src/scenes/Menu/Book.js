@@ -23,7 +23,7 @@ export default class Book extends Phaser.GameObjects.Container {
             left = new TextPage(scene, -this.width/2, -this.height/2, textos[(inventoryData.has_page(izq) ? izq : 0)]);
         }
         //Pagina derecha
-        if(der == 5){ //Pagina final
+        if(der == 7){ //Pagina final
             right = new MenuPage(scene, 0, -this.height/2);
         }else{
             right = new TextPage(scene, 0, -this.height/2, textos[(inventoryData.has_page(der) ? der : 0)]);
