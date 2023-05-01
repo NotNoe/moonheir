@@ -89,8 +89,12 @@ export default class CombatScene extends Phaser.Scene {
 
     seleniCura(){
         // se cura un 60% y como mucho su vida máxima
-        this.char_info.health = Math.min(this.char_info.health + this.char_info.max_health * 0.6, this.char_info.max_health);
-        this.turnoJugadorAcabado = true;
+        if(this.char_info.potions > 0){
+            this.char_info.potions--;
+            this.char_info.health = Math.min(this.char_info.health + this.char_info.max_health * 0.6, this.char_info.max_health);
+            this.turnoJugadorAcabado = true;
+        }
+        
     }
 
     enemigoAtaca(){
@@ -152,6 +156,9 @@ export default class CombatScene extends Phaser.Scene {
     }
 
     terminar_combate(){
+        if(this.enemy_data.drop == "water" || this.enemy_data.drop == "plant" || this.enemy_data.drop == "fire" ){
+            this.char_info.unlock_page(this.enemy_data.drop);
+        }
         if(this.enemy_data.drop != "none"){
             this.char_info.add_key(this.enemy_data.drop);
             this.dialog.setText('Drop enemigo');
