@@ -16,18 +16,31 @@ export default class LoadScene extends Phaser.Scene {
     preload(){ //La idea es que esta escena cargue todos los recursos que necesitemos en todo el juego
 
         this.scenenames = [];
-        //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
+        //Tilesets
         this.load.image('tileset', tiled_folder + 'pixil_tileset_1.png');
         this.load.image('tileset2', tiled_folder + 'pixil_tileset_2.png');
+        this.load.image('tileset3', tiled_folder + 'pixil_tileset_3.png');
+
         let tilemaps = [];
+
+        // Tilemaps del nivel 0
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
         tilemaps.push({key: 'tilemapWorld0_2', url: tiled_folder + 'World0_2.json'});
         this.scenenames.push('World0_1');
         this.scenenames.push('World0_2');
-        for(let i = 1; i <= 9; i++){
+
+        // Tilemaps del nivel 1
+        for(let i = 1; i <= 7; i++){
             tilemaps.push({key: 'tilemapWorld1_' + i, url: tiled_folder + 'World1_' + i + '.json'});
             this.scenenames.push('World1_' + i);
         }
+
+        // Tilemaps del nivel 2
+        for(let i = 1; i <= 4; i++){
+            tilemaps.push({key: 'tilemapWorld2_' + i, url: tiled_folder + 'World2_' + i + '.json'});
+            this.scenenames.push('World2_' + i);
+        }
+
         tilemaps.forEach(element => {
             this.load.tilemapTiledJSON(element.key, element.url);
         });
