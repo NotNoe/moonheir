@@ -21,7 +21,7 @@ export default class InfoPage extends Phaser.GameObjects.Container {
         text += "\nDefense: " + inventoryData.char_info.defense + "\nWeapon: " + inventoryData.char_info.getWeapon() + "\nPotions: " + inventoryData.char_info.potions;
         this.t = this.scene.add.text(this.width/4, 0, text, {fontSize: '35px'}).setOrigin(0.5,0.5);
         this.t.setFontFamily('CustomFont');
-        this.t.setColor('#FFFFFF');
+        this.t.setColor('#000000');
         this.info.add(this.t);
 
         this.scene.events.on('resume', this.refreshText, this);

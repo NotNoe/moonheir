@@ -7,6 +7,7 @@ export default class Table extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
         // @ts-ignore
         this.body.setImmovable(true);
+        this.setScale(2,2);
     }
 
     interactuar(zone){
@@ -26,12 +27,6 @@ export default class Table extends Phaser.Physics.Arcade.Sprite {
             this.char_info.unlockedWeapons.push("planta");
             this.char_info.stone == null;
         }
-        console.log("Vida recuperada");
-        this.char_info.health = this.char_info.max_health;
-
-
-
-
 
         // @ts-ignore
         this.scene.scene.pause(this.scene.scene_name);
