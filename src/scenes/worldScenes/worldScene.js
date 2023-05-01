@@ -9,6 +9,8 @@ import Interactive from './util/interactive.js';
 import Enemy_Data from '../../characters/enemy_data.js';
 import WorldEnemy from './util/worldEnemy.js';
 import InventoryData from '../Menu/InventoryData.js';
+import SceneData from './util/sceneData.js';
+import LibChanger from './util/LibChanger.js';
 
 //La idea es que esto sea una "clase abstracta". Todas las escenas del mundo serán
 //Una subclase de esta clase, porque la carga y todo eso es igual, lo único distinto será el
@@ -36,11 +38,16 @@ export default class WorldScene extends Phaser.Scene {
 
 
 	create() {
+		if(this.scene_data == null){
+			let map = this.make.tilemap({key: this.tilemap});
+			this.scene_data = new SceneData(map);
+			this.scenes_data[this.scene_name] = this.scene_data;
+		}
 		let map = this.make.tilemap({
 			key: this.tilemap
 		});
 
-		this.tileset = map.addTilesetImage('pixil_tileset_1', 'tileset'); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
+		map.addTilesetImage(this.tileset, this.tileset); //Lo primero es el nombre del set que se puso en tiled, lo segundo el nombre del recurso en memoria
 
 		//Creamos el fondo, que no necesita colisiones ni nada
 		map.createLayer('Back/Background', this.tileset);
@@ -127,8 +134,18 @@ export default class WorldScene extends Phaser.Scene {
 		}
 	}
 
+	addLibDoor(direccion){
+		let obj = this.scene_data.data[direccion]; //V1 es el changer
+		let changer = new LibChanger(this, obj.x, obj.y, direccion); //En realidad esto no existe como tal, simplemente se pone
+		let inter = new Interactive(this, obj.x, obj.y, obj.width, obj.height, this.seleni, changer);
+	}
+
 	addDoors() {
 		for (const direccion in this.scene_data.data) {
+			if(direccion == 'lib_in' || direccion == 'lib_out'){
+				this.addLibDoor(direccion);
+				continue;
+			} //Las puertas de la librería se hacen aparte.
 			let v1 = this.scene_data.data[direccion];
 			let lock, door;
 			let type, img, obj_aux;

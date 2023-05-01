@@ -14,11 +14,13 @@ import UIScene from './scenes/combat/UIScene.js';
 import InventoryScene from './scenes/Menu/InventoryScene.js';
 import ChangeWeaponScene from './scenes/Menu/ChangeWeapon.js';
 import DialogBoxScene from './scenes/worldScenes/util/DialogBox.js';
+import World0_2 from './scenes/worldScenes/World0/World0_2.js';
 
 const scenes = [];
 scenes.push(LoadScene);
 scenes.push(MenuScene);
 scenes.push(World0_1);
+scenes.push(World0_2);
 scenes.push(World1_1);
 scenes.push(World1_2);
 scenes.push(World1_3);

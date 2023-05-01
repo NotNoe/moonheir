@@ -17,8 +17,8 @@ export default class LoadScene extends Phaser.Scene {
 
         this.scenenames = [];
         //Carga de recursos de TILED (Tilemaps, Tileset, Atlas...)
-        this.load.image('tileset', tiled_folder + 'pixil_tileset_1.png');
-        this.load.image('tileset2', tiled_folder + 'pixil_tileset_2.png');
+        this.load.image('pixil_tileset_1', tiled_folder + 'pixil_tileset_1.png');
+        this.load.image('pixil_tileset_2', tiled_folder + 'pixil_tileset_2.png');
         let tilemaps = [];
         tilemaps.push({key: 'tilemapWorld0_1', url: tiled_folder + 'World0_1.json'});
         tilemaps.push({key: 'tilemapWorld0_2', url: tiled_folder + 'World0_2.json'});
@@ -52,6 +52,7 @@ export default class LoadScene extends Phaser.Scene {
         this.load.image('chest', images_folder + 'chest.png');
         this.load.image('dialog_box', images_folder + 'dialog_box.png');
         this.load.image('bed', images_folder + 'bed.png');
+        this.load.image('table', images_folder + 'table.png');
 
 
         //Botones
@@ -89,14 +90,10 @@ export default class LoadScene extends Phaser.Scene {
         this.scene.start('MenuScene', this.scenes_data);
     }
 
-    loadMaps(scene_names){ //Esta funcion se va a encargar de cargar los mapas :D
+    loadMaps(scene_names){
         let scenes_data = {};
         scene_names.forEach(sceneName => {
-            let map = this.make.tilemap({
-                key: 'tilemap' + sceneName
-            });
-            let scene_data = new SceneData(map);
-            scenes_data[sceneName] = scene_data;
+            scenes_data[sceneName] = null;
         });
         return scenes_data;
     }
