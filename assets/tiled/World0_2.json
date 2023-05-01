@@ -46,7 +46,7 @@
                 {
                  "draworder":"topdown",
                  "id":6,
-                 "name":"LibOut",
+                 "name":"South",
                  "objects":[
                         {
                          "height":1,
@@ -77,88 +77,12 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
-        {
-         "id":8,
-         "layers":[
-                {
-                 "draworder":"topdown",
-                 "id":7,
-                 "name":"Table",
-                 "objects":[
-                        {
-                         "height":100,
-                         "id":6,
-                         "name":"table",
-                         "rotation":0,
-                         "type":"",
-                         "visible":true,
-                         "width":100,
-                         "x":100,
-                         "y":500
-                        }, 
-                        {
-                         "height":102,
-                         "id":10,
-                         "name":"interactive",
-                         "rotation":0,
-                         "type":"",
-                         "visible":true,
-                         "width":102,
-                         "x":99,
-                         "y":499
-                        }],
-                 "opacity":1,
-                 "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "draworder":"topdown",
-                 "id":9,
-                 "name":"Bed",
-                 "objects":[
-                        {
-                         "height":150,
-                         "id":11,
-                         "name":"bed",
-                         "rotation":0,
-                         "type":"",
-                         "visible":true,
-                         "width":100,
-                         "x":850,
-                         "y":550
-                        }, 
-                        {
-                         "height":152,
-                         "id":12,
-                         "name":"interactive",
-                         "rotation":0,
-                         "type":"",
-                         "visible":true,
-                         "width":102,
-                         "x":849,
-                         "y":549
-                        }],
-                 "opacity":1,
-                 "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
-                }],
-         "name":"Indoor",
-         "opacity":1,
-         "type":"group",
-         "visible":true,
-         "x":0,
-         "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":13,
+ "nextlayerid":7,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.10.1",
+ "tiledversion":"1.10.0",
  "tileheight":50,
  "tilesets":[
         {
