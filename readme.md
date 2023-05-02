@@ -8,7 +8,7 @@ Moonheir es un RPG por turnos / aventura en la que el jugador controla a Seleni,
 
 ## Imágenes y bocetos
 
-![inventario](https://user-images.githubusercontent.com/56733112/228374463-696eeaa6-bb85-4617-8773-c3b5c5790df9.png)
+![mapa1](https://user-images.githubusercontent.com/56733112/235783951-917cdf40-222d-4e27-a3f8-8c46136c74db.jpg)
 
 ![guicombate](https://user-images.githubusercontent.com/56733112/228375029-9c4d36df-a4f6-452e-a69d-df23465e11ac.jpg)
 
