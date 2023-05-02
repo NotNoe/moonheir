@@ -78,6 +78,12 @@ export default class UIScene extends Phaser.Scene {
                 this.sceneCombat.seleniCura();
             }
         });
+
+        // ganar automáticamente
+        this.inputManager.freeWin.on('down', () => {
+            // @ts-ignore
+            this.sceneCombat.freeWin();
+        });
     }
 
     update() {

@@ -84,6 +84,7 @@ export default class CombatScene extends Phaser.Scene {
 
     seleniDefiende(){
         // la idea es que evite parte del ataque (50%)
+        this.dialog.setText('Seleni se ha defendido.', true);
         this.turnoJugadorAcabado = true;
     }
 
@@ -92,15 +93,21 @@ export default class CombatScene extends Phaser.Scene {
         if(this.char_info.potions > 0){
             this.char_info.potions--;
             this.char_info.health = Math.min(this.char_info.health + this.char_info.max_health * 0.6, this.char_info.max_health);
-            this.turnoJugadorAcabado = true;
+            this.dialog.setText('Seleni se ha curado.', true);
+        }else{
+            this.dialog.setText('¡Seleni no tiene pociones!.', true);
         }
-        
+        this.turnoJugadorAcabado = true;
     }
 
     enemigoAtaca(){
         var dmg = this.damage(this.enemy_data.level * 10, this.enemy_data.attack, this.enemy_data.def, 30);
         this.char_info.health -= dmg;
         return dmg;
+    }
+
+    freeWin(){
+        this.terminar_combate('seleni');
     }
 
     // @ts-ignore
@@ -113,7 +120,7 @@ export default class CombatScene extends Phaser.Scene {
                 if(this.finalTextTime > 2000){
                     this.dialog.setText('¡Seleni ha ganado!', true);
                     this.end = true;
-                    this.terminar_combate();
+                    this.terminar_combate('seleni');
                 }
             }
             else if(this.char_info.health <= 0){
@@ -121,7 +128,7 @@ export default class CombatScene extends Phaser.Scene {
                 if(this.finalTextTime > 2000){
                     this.dialog.setText('Oh no! Seleni ha perdido en la batalla.', true);
                     this.end = true;
-                    this.terminar_combate();
+                    this.terminar_combate('enemigo');
                 }
             }
             
@@ -155,21 +162,23 @@ export default class CombatScene extends Phaser.Scene {
         }
     }
 
-    terminar_combate(){
+    terminar_combate(ganador){
         if(this.enemy_data.drop == "water" || this.enemy_data.drop == "plant" || this.enemy_data.drop == "fire" ){
             this.char_info.unlock_page(this.enemy_data.drop);
         }
         if(this.enemy_data.drop != "none"){
             this.char_info.add_key(this.enemy_data.drop);
-            this.dialog.setText('Drop enemigo');
-            console.log("Conseguido " + this.enemy_data.drop);
+            this.dialog.setText('¡El enemigo dropeo ' + this.enemy_data.drop + '!');
         }
         setTimeout(() => {
             this.enemy_data.enemigo.destroy();
             this.enemy_data.scene_data.enemigo = null;
             this.scene.stop('CombatScene');
             this.scene.stop('UIScene');
-            this.scene.resume(this.enemy_data.scene_name);
+            if(ganador == 'seleni')
+                this.scene.resume(this.enemy_data.scene_name);
+            else if(ganador == 'enemigo')
+                this.scene.launch('LoadScene');
         }, 1000);
         
     }

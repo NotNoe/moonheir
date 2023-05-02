@@ -20,11 +20,7 @@ export default class HealthBar extends Phaser.GameObjects.Container {
             if(this.currentHealth < this.char_info.health){
                 this.currentHealth = this.char_info.health;
             }
-        }else if(this.char_info.health > this.currentHealth){
-            this.currentHealth += 0.4;
-            if(this.currentHealth > this.char_info.health){
-                this.currentHealth = this.char_info.health;
-            }
+            this.healthBar.setScale((this.currentHealth / this.char_info.max_health) * 0.6, 1);
         }
         else{ // se cura
             this.currentHealth += 0.4;
