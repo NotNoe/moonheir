@@ -1,7 +1,7 @@
-import InfoPage from "./InfoPage";
-import MenuPage from "./MenuPage";
-import TextPage from "./TextPage";
-import textos from "./historia";
+import InfoPage from "./InfoPage.js";
+import MenuPage from "./MenuPage.js";
+import TextPage from "./TextPage.js";
+import textos from "./historia.js";
 
 export default class Book extends Phaser.GameObjects.Container {
     constructor(scene, x, y, inventoryData){ //La i indica que tiene que mostrar la pagina 2*i y la 2*i + 1;

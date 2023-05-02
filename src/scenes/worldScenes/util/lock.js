@@ -1,6 +1,4 @@
 import blockText from "../blockText.js";
-// @ts-ignore
-import DialogBox from "./DialogBox.js";
 import Interactive from "./interactive.js";
 
 export default class Lock extends Interactive {

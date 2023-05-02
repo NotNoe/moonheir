@@ -1,4 +1,4 @@
-import HealthBar from "../combat/HealthBar";
+import HealthBar from "../combat/HealthBar.js";
 
 export default class InfoPage extends Phaser.GameObjects.Container {
     inventoryData;

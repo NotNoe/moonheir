@@ -1,5 +1,3 @@
-import DialogBox from "./DialogBox";
-
 export default class Chest extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, open, drop) {
         super(scene, x, y, 'chest');

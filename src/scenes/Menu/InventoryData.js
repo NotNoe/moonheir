@@ -1,4 +1,3 @@
-
 export default class InventoryData {
     scene_name; char_info;
 

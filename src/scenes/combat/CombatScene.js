@@ -157,7 +157,7 @@ export default class CombatScene extends Phaser.Scene {
                 this.dialog.setText('Patxi ataca. Le quita a Seleni ' + dmg + ' de vida.', true);
                 this.turn = 0;
                 console.log("vida de seleni:"+this.char_info.health);
-                console.log("vida de paxti:"+this.enemy_data.hp);
+                console.log("vida de patxi:"+this.enemy_data.hp);
             }
         }
     }
