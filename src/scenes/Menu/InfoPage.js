@@ -1,3 +1,5 @@
+import HealthBar from "../combat/HealthBar";
+
 export default class InfoPage extends Phaser.GameObjects.Container {
     inventoryData;
     constructor(scene, x, y, inventoryData){
@@ -16,6 +18,9 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
 
         this.info = this.scene.add.container(this.width/2, 0.25*this.height);
+        this.h = new HealthBar(scene, -this.width*0.45 ,-this.height*0.15, scene.inventoryData.char_info);
+        this.addToUpdateList();
+        this.info.add(this.h);
         this.add(this.info);
         let text =  "Vida: " + this.inventoryData.char_info.health + "\nAtaque: " + this.inventoryData.char_info.attack;
         text += "\nDefensa: " + this.inventoryData.char_info.defense + "\nArma: " + this.inventoryData.char_info.getWeapon() + "\nPociones: " + this.inventoryData.char_info.potions;
@@ -66,12 +71,13 @@ export default class InfoPage extends Phaser.GameObjects.Container {
 
     }
 
+    
+
     usePotion(){
         let char_info = this.inventoryData.char_info;
         if(char_info.potions > 0 && char_info.health < char_info.max_health){
             char_info.potions--;
-            char_info.health += 0.56*char_info.max_health;
-            if(char_info.health > char_info.max_health) char_info.health = char_info.max_health;
+            char_info.health = Math.min(char_info.health + char_info.max_health * 0.6, char_info.max_health);
             this.refreshText();
         }
     }

@@ -13,23 +13,27 @@ export default class Book extends Phaser.GameObjects.Container {
         this.width = bg.width;
         this.height = bg.height;
         this.add(bg);
-        let left;
-        let right;
+        this.left;
+        this.right;
         //Pagina izquierda
         if(izq == 0){ //Menu
-            left = new InfoPage(scene, -this.width/2, -this.height/2, inventoryData);
+            this.left = new InfoPage(scene, -this.width/2, -this.height/2, inventoryData);
         }
         else{ //Pagina de texto
-            left = new TextPage(scene, -this.width/2, -this.height/2, textos[(inventoryData.has_page(izq) ? izq : 0)]);
+            this.left = new TextPage(scene, -this.width/2, -this.height/2, textos[(inventoryData.has_page(izq) ? izq : 0)]);
         }
         //Pagina derecha
         if(der == 7){ //Pagina final
-            right = new MenuPage(scene, 0, -this.height/2);
+            this.right = new MenuPage(scene, 0, -this.height/2);
         }else{
-            right = new TextPage(scene, 0, -this.height/2, textos[(inventoryData.has_page(der) ? der : 0)]);
+            this.right = new TextPage(scene, 0, -this.height/2, textos[(inventoryData.has_page(der) ? der : 0)]);
         }
-        this.add(left);
-        this.add(right);
+        this.add(this.left);
+        this.add(this.right);
+        this.addToUpdateList();
+    }
+
+    preUpdate(t, dt){
         
     }
 

@@ -19,10 +19,24 @@ export class charInfo{
     keys = [];
     drops = [];
 
-    pages = [true, true, true, true, true, true, true, true];  //Las paginas desbloqueadas
+    pages = [true, false, false, false, false, false, false, true];  //Las paginas desbloqueadas
 
     has_page(i){return this.pages[i];}
-    unlock_page(i){this.pages[i]=true;}
+    unlock_page(page){
+        if(page == "plant"){
+            this.pages[1] = true;
+            this.pages[4] = true;
+        }
+        if(page == "water"){
+            this.pages[2] = true;
+            this.pages[5] = true;
+        }
+        if(page == "fire"){
+            this.pages[3] = true;
+            this.pages[6] = true;
+        }
+
+    }
 
     can_open(type){
         if(type == "fire" || type == "water" || type == "plant") return type == this.currentWeapon;
