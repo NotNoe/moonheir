@@ -30,7 +30,7 @@ export default class WorldScene extends Phaser.Scene {
 		this.char_info = data.char_info;
 		this.scenes_data = data.scenes_data;
 		this.scene_data = this.scenes_data[this.scene_name];
-		this.events.on("resume", event => {
+		this.events.on("resume", (event) => {
 			this.seleni.dir.x = 0;
 			this.seleni.dir.y = 0;
 		})

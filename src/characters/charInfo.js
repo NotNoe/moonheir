@@ -57,4 +57,13 @@ export class charInfo{
         if(this.currentWeapon == "plant") return "Planta";
         return "Vacío"
     }
+
+    addWeapon(type){
+        // @ts-ignore
+        this.unlockedWeapons.push(type);
+    }
+
+    addStone(type){
+        this.stone = type;
+    }
 }

@@ -44,10 +44,7 @@ export default class CombatScene extends Phaser.Scene {
         this.dialog.init();
         this.enemy_data.level = 1;
         if(this.enemy_data.level == 1){
-            if(this.enemy_data.sprite == 'patxi'){
-                // @ts-ignore
-                this.dialog.setText('Aiba la ordiga, ' + this.enemy_data.sprite + ' se ha cruzado en tu camino', true);
-            }
+            this.dialog.setText('Aiba la ordiga, ' + this.enemy_data.sprite + ' se ha cruzado en tu camino', true);
         }
 
         this.healthBar = new HealthBar(this, 0, 0, this.char_info);
@@ -154,10 +151,10 @@ export default class CombatScene extends Phaser.Scene {
                 // ataca enemigo
                 var dmg = this.enemigoAtaca();
                 // @ts-ignore
-                this.dialog.setText('Patxi ataca. Le quita a Seleni ' + dmg + ' de vida.', true);
+                this.dialog.setText(this.enemy_data.sprite + ' ataca. Le quita a Seleni ' + dmg + ' de vida.', true);
                 this.turn = 0;
                 console.log("vida de seleni:"+this.char_info.health);
-                console.log("vida de patxi:"+this.enemy_data.hp);
+                console.log("vida de enemigo:"+this.enemy_data.hp);
             }
         }
     }
@@ -167,7 +164,13 @@ export default class CombatScene extends Phaser.Scene {
             this.char_info.unlock_page(this.enemy_data.drop);
         }
         if(this.enemy_data.drop != "none"){
-            this.char_info.add_key(this.enemy_data.drop);
+            if(this.enemy_data.sprite == 'iratxo'){
+                this.char_info.addWeapon(this.enemy_data.drop);
+                this.char_info.addStone(this.enemy_data.drop);
+            }
+            else{
+                this.char_info.add_key(this.enemy_data.drop);
+            }
             this.dialog.setText('¡El enemigo dropeo ' + this.enemy_data.drop + '!');
         }
         setTimeout(() => {
@@ -178,7 +181,7 @@ export default class CombatScene extends Phaser.Scene {
             if(ganador == 'seleni')
                 this.scene.resume(this.enemy_data.scene_name);
             else if(ganador == 'enemigo')
-                this.scene.launch('LoadScene');
+                window.location.reload();
         }, 1000);
         
     }

@@ -9,6 +9,10 @@ import World1_4 from './scenes/worldScenes/World1/World1_4.js';
 import World1_5 from './scenes/worldScenes/World1/World1_5.js';
 import World1_6 from './scenes/worldScenes/World1/World1_6.js';
 import World1_7 from './scenes/worldScenes/World1/World1_7.js';
+import World2_1 from './scenes/worldScenes/World2/World2_1.js';
+import World2_2 from './scenes/worldScenes/World2/World2_2.js';
+import World2_3 from './scenes/worldScenes/World2/World2_3.js';
+import World2_4 from './scenes/worldScenes/World2/World2_4.js';
 import CombatScene from './scenes/combat/CombatScene.js';
 import UIScene from './scenes/combat/UIScene.js';
 import InventoryScene from './scenes/Menu/InventoryScene.js';
@@ -33,6 +37,10 @@ scenes.push(UIScene);
 scenes.push(InventoryScene);
 scenes.push(ChangeWeaponScene);
 scenes.push(DialogBoxScene);
+scenes.push(World2_1);
+scenes.push(World2_2);
+scenes.push(World2_3);
+scenes.push(World2_4);
 
 const config = {
 	type: Phaser.WEBGL,
