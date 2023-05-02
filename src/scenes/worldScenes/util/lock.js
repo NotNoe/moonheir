@@ -1,3 +1,6 @@
+import blockText from "../blockText.js";
+// @ts-ignore
+import DialogBox from "./DialogBox.js";
 import Interactive from "./interactive.js";
 
 export default class Lock extends Interactive {
@@ -14,6 +17,10 @@ export default class Lock extends Interactive {
             super.interactuar(); //Solo interactua con su objeto si puede.
         }else{
             console.log("No tienes " + this.unlock);
+            // @ts-ignore
+            this.scene.scene.pause(this.scene.scene_name);
+            // @ts-ignore
+            this.scene.scene.launch("DialogBoxScene", {scene_name: this.scene.scene_name, text: blockText[this.unlock]});
         }
     }
 }

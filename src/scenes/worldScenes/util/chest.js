@@ -1,3 +1,5 @@
+import DialogBox from "./DialogBox";
+
 export default class Chest extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, open, drop) {
         super(scene, x, y, 'chest');
@@ -16,6 +18,12 @@ export default class Chest extends Phaser.Physics.Arcade.Sprite {
         this.scene.seleni.char_info.add_drop(this.drop);
         // @ts-ignore
         this.scene.scene_data.cofre.open = true; //En tiempo dinámico existirá pq es una WorldScene
+        // @ts-ignore
+        this.scene.scene.pause(this.scene.scene_name);
+        // @ts-ignore
+        this.scene.scene.launch("DialogBoxScene", {scene_name: this.scene.scene_name, text: "Has obtenido una poción de curación"});
+        // @ts-ignore
+        this.scene.char_info.potions++;
         zone.delete_zone(); //Le dice a la zona que deje de detectar las cosas.
     }
 }

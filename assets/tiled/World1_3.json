@@ -60,7 +60,7 @@
          "name":"Enemy",
          "objects":[
                 {
-                 "height":90,
+                 "height":72,
                  "id":1,
                  "name":"iratxo",
                  "properties":[
@@ -77,7 +77,7 @@
                         {
                          "name":"drop",
                          "type":"string",
-                         "value":"water"
+                         "value":"plant"
                         }, 
                         {
                          "name":"hp",
@@ -97,7 +97,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":72,
+                 "width":90,
                  "x":450,
                  "y":370
                 }],
