@@ -20,7 +20,7 @@ export default class MenuScene extends Phaser.Scene{
             let info = new charInfo();
             info.pos.x = this.game.renderer.width/2;
             info.pos.y = this.game.renderer.height/2;
-            this.scene.start('World2_1', {char_info:info, scenes_data:this.scenes_data});
+            this.scene.start('World0_1', {char_info:info, scenes_data:this.scenes_data});
         })
     }
 }
